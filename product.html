@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Detail — Else Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Product Layout ── */
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      padding: 56px 0 80px;
+      align-items: start;
+    }
+    .product-image-stack { position: sticky; top: 100px; }
+    .product-main-image {
+      position: relative;
+      background: var(--surface-container);
+      overflow: hidden;
+    }
+    .product-main-image img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
+    .product-main-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 65%, rgba(3,22,61,0.06));
+      pointer-events: none;
+    }
+    .product-thumb-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .product-thumb {
+      width: 72px;
+      height: 60px;
+      overflow: hidden;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .product-thumb.active { border-color: var(--navy); }
+    .product-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Product Info */
+    .product-info {}
+    .product-cat-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .product-name {
+      font-family: var(--font-head);
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .product-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--surface-high);
+    }
+    .product-actions {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* Specs */
+    .detail-section {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--surface-high);
+    }
+    .detail-title {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--outline);
+      margin-bottom: 20px;
+    }
+
+    /* Fabric Section */
+    .fabrics-section { padding: var(--section-gap) 0; background: var(--surface-low); }
+    .fabrics-grid-full {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .fabric-full-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .fabric-full-dot {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      outline: 1px solid rgba(0,0,0,0.08);
+      border: 2px solid transparent;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .fabric-full-dot:hover { transform: scale(1.08); }
+    .fabric-full-name {
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .fabric-group-head {
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--outline-light);
+      margin: 24px 0 12px;
+      grid-column: 1 / -1;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--outline-light);
+    }
+
+    /* Layer Diagram */
+    .architecture-section { padding: var(--section-gap) 0; background: var(--white); }
+    .arch-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .arch-diagram { display: flex; flex-direction: column; gap: 3px; }
+    .arch-layer {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      position: relative;
+    }
+    .arch-layer-name {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .arch-layer-depth {
+      position: absolute;
+      right: 16px;
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: rgba(0,0,0,0.35);
+    }
+
+    /* Related Products */
+    .related-section { padding: var(--section-gap) 0; background: var(--surface); }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 1100px) {
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .product-layout { grid-template-columns: 1fr; gap: 40px; }
+      .product-image-stack { position: static; }
+      .arch-inner { grid-template-columns: 1fr; }
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Else Home">
+      <svg width="120" height="16" viewBox="0 0 177 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21.7219 14.3624C21.7219 14.8579 21.5992 15.3184 21.3492 15.7438C21.0597 16.2262 20.687 16.4674 20.2309 16.4674H4.56181C4.73723 17.8707 6.18441 18.5724 8.90776 18.5724H10.6444C11.846 18.5724 12.4424 19.3311 12.4424 20.844C12.4424 22.1377 11.8416 22.7824 10.6444 22.7824C8.4429 22.7824 6.95186 22.7385 6.17564 22.6464C4.33377 22.4316 2.95236 21.9404 2.03142 21.1642C0.676331 20.0064 0.000976562 18.6382 0.000976562 17.055V11.1084C0.000976562 9.07796 1.00524 7.54745 3.00937 6.52564C4.53111 5.74942 6.33352 5.36351 8.42536 5.36351H14.5386C16.2358 5.36351 17.7356 5.68803 19.0381 6.34146C20.8273 7.24924 21.7219 8.62626 21.7219 10.4681V14.358Z" fill="#8A1002"/>
+        <path d="M27.5987 20.8308C27.5987 22.1333 26.9979 22.7823 25.8007 22.7823C24.9104 22.7823 24.3096 22.7078 24.0027 22.5631C23.4457 22.2956 23.165 21.7167 23.165 20.8264V2.95587C23.165 1.6534 23.7615 0.999972 24.9499 0.999972C25.8401 0.999972 26.4409 1.07452 26.7479 1.21924C27.318 1.48675 27.6031 2.06563 27.6031 2.95587V20.8264Z" fill="#8A1002"/>
+        <path d="M48.9335 17.546C48.9335 21.0367 46.5786 22.7821 41.873 22.7821H30.7955C29.607 22.7821 29.0106 22.1331 29.0106 20.8306C29.0106 19.3045 29.607 18.5414 30.7955 18.5414H41.8862C44.0701 18.4099 44.3859 18.0854 44.3859 17.546V16.9408C44.3859 16.3794 43.6447 16.0988 42.1668 16.0988H36.8473C31.5717 16.0988 28.936 14.4104 28.936 11.0292V10.1521C28.936 7.92874 30.2122 6.48594 32.7689 5.82374C33.9266 5.52992 36.0009 5.3852 38.9918 5.3852Z" fill="#8A1002"/>
+        <path d="M72.0183 14.3624C72.0183 14.8579 71.8955 15.3184 71.6456 15.7438C71.3561 16.2262 70.9834 16.4674 70.5273 16.4674H54.8582C55.0336 17.8707 56.4808 18.5724 59.2041 18.5724H60.9408C62.1424 18.5724 62.7388 19.3311 62.7388 20.844C62.7388 22.1377 62.138 22.7824 60.9408 22.7824Z" fill="#8A1002"/>
+        <path d="M99.8562 20.8303C99.8562 21.7863 99.5098 22.3915 98.8169 22.6502C98.5669 22.7379 98.0319 22.7862 97.2031 22.7862C96.0146 22.7862 95.4182 22.1371 95.4182 20.8347V11.3183C95.4182 10.5772 94.9183 10.0992 93.914 9.88867C93.4798 9.80096 92.708 9.75272 91.6029 9.75272H82.5733V20.8347C82.5733 22.1371 81.9725 22.7862 80.7753 22.7862C79.885 22.7862 79.2842 22.7116 78.9773 22.5669C78.4203 22.2994 78.1396 21.7205 78.1396 20.8303V2.95971Z" fill="#03163D"/>
+        <path d="M122.74 17.1422C122.74 19.2516 121.788 20.7909 119.885 21.7557C118.521 22.4398 116.854 22.7818 114.89 22.7818H109.443C107.448 22.7818 105.698 22.3959 104.198 21.6197C102.255 20.6111 101.282 19.1156 101.282 17.1378V11.1912C101.282 9.12566 102.295 7.56884 104.321 6.52511C105.829 5.76205 107.531 5.38052 109.425 5.38052H114.885C120.117 5.38052 122.735 7.30571 122.735 11.1561Z" fill="#03163D"/>
+        <path d="M153.459 20.8303C153.459 22.1328 152.863 22.7818 151.674 22.7818C150.784 22.7818 150.179 22.7073 149.859 22.5626C149.289 22.2951 149.004 21.7162 149.004 20.826V10.8711C149.004 10.0159 147.837 9.59052 145.5 9.59052C145.21 9.59052 144.859 9.5949 144.451 9.60806C144.044 9.62121 143.811 9.6256 143.763 9.6256C142.917 9.6256 142.311 9.70015 141.947 9.84487C141.36 10.0905 141.062 10.586 141.062 11.3271V20.826C141.062 21.7118 140.781 22.2907 140.224 22.5626C139.904 22.7073 139.299 22.7818 138.408 22.7818C137.198 22.7818 136.593 22.1328 136.593 20.8303V11.3096Z" fill="#03163D"/>
+        <path d="M176.544 14.3624C176.544 14.8579 176.421 15.3184 176.171 15.7438C175.882 16.2262 175.509 16.4674 175.053 16.4674H159.384C159.559 17.8707 161.007 18.5724 163.726 18.5724H165.462C166.664 18.5724 167.26 19.331 167.26 20.844C167.26 22.1377 166.659 22.7824 165.462 22.7824Z" fill="#03163D"/>
+      </svg>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="collections.html" class="active">Collections</a></li>
+        <li><a href="bespoke.html">Bespoke</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="bespoke.html" class="btn btn-primary btn-sm">Start Custom Project</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- Breadcrumb -->
+<div style="background:var(--white);border-bottom:1px solid var(--outline-light);padding:16px 0;">
+  <div class="container">
+    <div class="breadcrumb" id="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="collections.html">Collections</a>
+      <span>›</span>
+      <span id="bcProduct">Loading…</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ PRODUCT DETAIL ════════════════════════════════════ -->
+<div style="background:var(--white);">
+  <div class="container">
+    <div class="product-layout" id="productLayout">
+      <!-- Populated by JS -->
+      <div style="display:flex;align-items:center;justify-content:center;min-height:400px;color:var(--outline);">
+        <span class="label-caps">Loading product…</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ FABRIC OPTIONS ════════════════════════════════════ -->
+<section class="fabrics-section" id="fabricsSection" style="display:none;">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label-row">
+        <span class="label-caps">Material Options</span>
+      </div>
+      <h2 class="h-md">Fabric Selection</h2>
+      <p class="body-md" style="margin-top:12px;max-width:560px;">
+        Available in 40+ certified fabric options. All swatches shown are representative — exact colours vary by dye lot. Sample service available on request.
+      </p>
+    </div>
+    <div id="fabricsList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:16px;"></div>
+  </div>
+</section>
+
+
+<!-- ═══ ARCHITECTURE DIAGRAM ══════════════════════════════ -->
+<section class="architecture-section" id="archSection" style="display:none;">
+  <div class="container">
+    <div class="arch-inner">
+      <div>
+        <div class="section-label-row" style="margin-bottom:16px;">
+          <span class="label-caps">Internal Architecture</span>
+        </div>
+        <h2 class="h-md" style="margin-bottom:16px;">Layer Construction</h2>
+        <p class="body-md" style="margin-bottom:32px;max-width:460px;">
+          Each layer is selected for a specific performance role. The sequence is engineered, not arbitrary — every material chosen for what it does, not just what it costs.
+        </p>
+        <a href="bespoke.html" class="btn btn-outline">Customise This Specification</a>
+      </div>
+      <div class="arch-diagram" id="archDiagram"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ RELATED PRODUCTS ══════════════════════════════════ -->
+<section class="related-section" id="relatedSection">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label-row">
+        <span class="label-caps">You May Also Consider</span>
+      </div>
+      <h2 class="h-md">Related Products</h2>
+    </div>
+    <div class="related-grid" id="relatedGrid"></div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <svg width="110" height="14" viewBox="0 0 177 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.7219 14.3624H4.56181C4.73723 17.8707 6.18441 18.5724 8.90776 18.5724H10.6444C12.4424 19.3311 12.4424 20.844 10.6444 22.7824C8.4429 22.7824 6.17564 22.6464 4.33377 22.4316C2.95236 21.9404 2.03142 21.1642 0.676331 20.0064C0.000977 18.6382 0.000977 17.055 0.000977 11.1084V6.52564C4.53111 5.74942 6.33352 5.36351 8.42536 5.36351H14.5386C16.2358 5.36351 19.0381 6.34146 20.8273 7.24924C21.7219 8.62626 21.7219 14.358Z" fill="#8A1002"/>
+            <path d="M27.5987 20.8308V2.95587C23.7615 0.999972 24.9499 0.999972 25.8007 22.7823Z" fill="#8A1002"/>
+            <path d="M99.8562 20.8303V2.95971C78.1396 1.49498 78.9773 1.22308 80.7753 1.00381C82.5733 1.65724 82.5733 2.95971V5.50325H91.6029C93.4842 5.50325 96.7689 6.32771 98.8257 7.20479C99.8562 8.84932 99.8562 20.826Z" fill="white"/>
+            <path d="M176.544 14.3624H159.384C159.559 17.8707 163.726 18.5724 165.462 18.5724C166.664 18.5724 167.26 19.331 167.26 20.844C167.26 22.1377 165.462 22.7824 163.243 5.36347H169.357C171.054 5.36347 175.645 7.24921 176.54 10.4681Z" fill="white"/>
+          </svg>
+        </div>
+        <p>Precision-manufactured bed systems for export markets, hotel contracts, and retail partners worldwide.</p>
+        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;">A manufacturer, not a retailer</span>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Collections</div>
+        <ul>
+          <li><a href="collections.html?cat=bed-base">Bed Base Systems</a></li>
+          <li><a href="collections.html?cat=mattress">Mattresses</a></li>
+          <li><a href="collections.html?cat=topper">Toppers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Company</div>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="bespoke.html">Bespoke Manufacturing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <ul>
+          <li><a href="mailto:export@elsehome.com">export@elsehome.com</a></li>
+          <li><a href="bespoke.html#contact">Request a Project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Else Home. All rights reserved.</span>
+      <span>Engineered in Turkey. Exported worldwide.</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="data.js"></script>
+<script>
+  const urlId = new URLSearchParams(window.location.search).get('id') || 'bb-01';
+  const product = getProductById(urlId);
+
+  if (!product) {
+    document.getElementById('productLayout').innerHTML =
+      '<p style="color:var(--red);padding:40px 0;">Product not found. <a href="collections.html">Back to collections</a></p>';
+  } else {
+    // Update page title
+    document.title = `${product.name} — Else Home`;
+
+    // Breadcrumb
+    const catLink = `collections.html?cat=${product.category}`;
+    const catMap = { 'bed-base': 'Bed Base Systems', 'mattress': 'Mattresses', 'topper': 'Toppers' };
+    document.getElementById('breadcrumb').innerHTML = `
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="collections.html">Collections</a>
+      <span>›</span>
+      <a href="${catLink}">${catMap[product.category]}</a>
+      <span>›</span>
+      <span>${product.name}</span>
+    `;
+
+    // Specs HTML
+    const specsRows = Object.entries(product.specs).map(([k, v]) =>
+      `<tr><td>${k}</td><td>${v}</td></tr>`
+    ).join('');
+
+    // Features HTML
+    const featureItems = product.features.map(f =>
+      `<li>${f}</li>`
+    ).join('');
+
+    // Custom options
+    const customItems = product.customOptions.map(o =>
+      `<li>${o}</li>`
+    ).join('');
+
+    // Fabric swatches (product-specific)
+    let swatchHtml = '';
+    if (product.fabrics && product.fabrics.length > 0) {
+      swatchHtml = `
+        <div class="detail-section">
+          <div class="detail-title">Available Fabrics</div>
+          <div class="fabric-swatches">
+            ${product.fabrics.map(fid => {
+              const f = getFabric(fid);
+              return `
+                <div class="swatch" title="${f.name}">
+                  <div class="swatch-dot" style="background:${f.hex};"></div>
+                  <span class="swatch-name">${f.name}</span>
+                </div>
+              `;
+            }).join('')}
+            <div class="swatch" title="More options available">
+              <div class="swatch-dot" style="background:linear-gradient(135deg,#f0edec,#03163D,#8A1002);"></div>
+              <span class="swatch-name">+34 more</span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Render product layout
+    document.getElementById('productLayout').innerHTML = `
+      <div class="product-image-stack">
+        <div class="product-main-image">
+          <img src="${product.image}" alt="${product.name}" id="mainImage">
+        </div>
+        <div class="product-thumb-row">
+          <div class="product-thumb active">
+            <img src="${product.thumb}" alt="${product.name}">
+          </div>
+          <div class="product-thumb">
+            <img src="https://placehold.co/144x120/e5e2e1/03163D?text=Detail" alt="Detail view">
+          </div>
+          <div class="product-thumb">
+            <img src="https://placehold.co/144x120/dcd9d9/03163D?text=Side" alt="Side view">
+          </div>
+          <div class="product-thumb">
+            <img src="https://placehold.co/144x120/f0edec/03163D?text=Base" alt="Base view">
+          </div>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <div class="product-cat-line">
+          <span class="label-caps">${catMap[product.category]}</span>
+          <span style="color:var(--outline-light);">·</span>
+          <span class="label-caps">${product.subcategory}</span>
+        </div>
+        <h1 class="product-name">${product.name}</h1>
+        <p class="product-desc">${product.description}</p>
+
+        <div class="product-actions">
+          <a href="bespoke.html?model=${product.id}" class="btn btn-primary btn-lg">Request This Model</a>
+          <a href="bespoke.html?model=${product.id}&custom=1" class="btn btn-cta">Customise This Model</a>
+        </div>
+
+        <!-- Features -->
+        <div class="detail-section">
+          <div class="detail-title">Key Features</div>
+          <ul class="feature-list">${featureItems}</ul>
+        </div>
+
+        <!-- Specs -->
+        <div class="detail-section">
+          <div class="detail-title">Technical Specifications</div>
+          <table class="spec-table">
+            ${specsRows}
+          </table>
+        </div>
+
+        <!-- Custom Options -->
+        <div class="detail-section">
+          <div class="detail-title">Customisation Options</div>
+          <ul class="feature-list">${customItems}</ul>
+        </div>
+
+        ${swatchHtml}
+
+        <!-- CTA note -->
+        <div style="margin-top:32px;padding:20px 20px 20px 16px;background:var(--surface-container);border-left:2px solid var(--navy);">
+          <div class="label-caps" style="color:var(--navy);margin-bottom:6px;">This is a Made-to-Order Product</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">
+            All specifications can be adapted to your requirements.
+            Contact us to discuss your brief — we'll provide a detailed production quotation.
+          </p>
+        </div>
+      </div>
+    `;
+
+    // Fabric section (full palette)
+    const fabricsSection = document.getElementById('fabricsSection');
+    if (product.fabrics && product.fabrics.length > 0) {
+      fabricsSection.style.display = '';
+      const groups = { neutral: 'Neutral & Natural', warm: 'Warm Tones', cool: 'Cool & Blue', dark: 'Dark & Deep' };
+      let fabricHtml = '';
+      Object.entries(groups).forEach(([group, label]) => {
+        const allInGroup = Object.entries(fabrics).filter(([,f]) => f.group === group);
+        if (allInGroup.length === 0) return;
+        fabricHtml += `<div style="font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--outline-light);margin:24px 0 12px;grid-column:1/-1;padding-bottom:8px;border-bottom:1px solid var(--outline-light);">${label}</div>`;
+        allInGroup.forEach(([id, f]) => {
+          const isAvail = product.fabrics.includes(id);
+          fabricHtml += `
+            <div style="display:flex;flex-direction:column;align-items:center;gap:6px;${!isAvail ? 'opacity:0.35;' : ''}">
+              <div style="width:44px;height:44px;border-radius:50%;background:${f.hex};outline:1px solid rgba(0,0,0,0.08);border:${isAvail ? '2px solid var(--navy)' : '2px solid transparent'};transition:transform 0.15s;" title="${f.name}"></div>
+              <span style="font-family:var(--font-head);font-size:9px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);text-align:center;max-width:56px;line-height:1.3;">${f.name}</span>
+            </div>
+          `;
+        });
+      });
+      document.getElementById('fabricsList').innerHTML = fabricHtml;
+    }
+
+    // Architecture diagram
+    if (product.layers && product.layers.length > 0) {
+      document.getElementById('archSection').style.display = '';
+      const layerColors = ['#f0edec','#e8e0d0','#ddd3c0','#c8c0b0','#b0a898','#9a9088'];
+      document.getElementById('archDiagram').innerHTML = product.layers.map((l, i) => `
+        <div class="arch-layer" style="background:${l.color || layerColors[i] || '#e0d8c8'};">
+          <span class="arch-layer-name" style="color:rgba(0,0,0,0.6);">${l.label}</span>
+        </div>
+      `).join('');
+    }
+
+    // Related products
+    const related = getRelated(product, 4);
+    if (related.length > 0) {
+      document.getElementById('relatedGrid').innerHTML = related.map(p => `
+        <a href="product.html?id=${p.id}" class="product-card reveal">
+          <div class="product-card-image">
+            <img src="${p.thumb}" alt="${p.name}" loading="lazy">
+          </div>
+          <div class="product-card-body">
+            <div class="product-card-cat">${p.subcategory}</div>
+            <div class="product-card-name">${p.name}</div>
+            <p class="product-card-desc">${p.shortDesc}</p>
+            <span class="product-card-cta">View Details
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 4h10M7 1l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    // Scroll reveal
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Thumb click
+    document.querySelectorAll('.product-thumb').forEach(t => {
+      t.addEventListener('click', () => {
+        document.querySelectorAll('.product-thumb').forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        const src = t.querySelector('img').src;
+        document.getElementById('mainImage').src = src;
+      });
+    });
+  }
+</script>
+</body>
+</html>

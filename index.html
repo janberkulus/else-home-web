@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Else Home — Precision Bed Manufacturing</title>
+  <meta name="description" content="Custom bed bases, mattresses, and toppers manufactured to specification for export markets, hotel contracts, and retail partners worldwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── HOME-SPECIFIC ── */
+
+    /* Hero */
+    .hero-section {
+      background: var(--surface);
+      overflow: hidden;
+      padding-top: 0;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      min-height: 640px;
+    }
+    .hero-text-col {
+      padding: 80px 64px 80px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .hero-kicker::before {
+      content: '';
+      width: 32px;
+      height: 2px;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+    .hero-headline {
+      font-family: var(--font-head);
+      font-size: clamp(44px, 5.5vw, 72px);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin-bottom: 32px;
+    }
+    .hero-headline em {
+      font-style: normal;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: 44px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .hero-image-col {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface-container);
+    }
+    .hero-image-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-image-col::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(3,22,61,0.06) 0%, transparent 55%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      z-index: 2;
+      background: rgba(252,249,248,0.95);
+      backdrop-filter: blur(10px);
+      padding: 14px 18px;
+      border-left: 2.5px solid var(--red);
+    }
+    .hero-badge .label-caps { color: var(--navy); margin-bottom: 4px; }
+    .hero-badge p { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+
+    /* Metrics bar */
+    .metrics-bar {
+      background: var(--surface-low);
+      border-top: 1px solid var(--outline-light);
+    }
+    .metrics-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 60px;
+    }
+    .metric-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid var(--outline-light);
+    }
+    .metric-item:last-child { border-right: none; }
+
+    /* Categories */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* Custom Manufacturing */
+    .cm-section {
+      background: var(--navy);
+      padding: var(--section-gap) 0;
+    }
+    .cm-inner {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .cm-text .label-caps { color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .cm-headline {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 4.5vw, 56px);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .cm-desc {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      max-width: 520px;
+    }
+    .cm-features { list-style: none; margin-bottom: 44px; }
+    .cm-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+    .cm-features li::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+    .cm-visual {
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .cm-visual img { width: 100%; display: block; }
+    .cm-visual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .cm-grid-item {
+      background: rgba(255,255,255,0.04);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cm-grid-item .label-caps { color: rgba(255,255,255,0.35); }
+    .cm-grid-item p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+    /* Engineering Section */
+    .eng-inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .eng-image-wrap {
+      position: relative;
+    }
+    .eng-image-wrap img {
+      width: 100%;
+      display: block;
+    }
+    .eng-callouts {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .eng-callout {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .eng-callout-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .eng-callout-dot::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border: 1px solid rgba(138,16,2,0.4);
+      border-radius: 50%;
+    }
+    .eng-callout-label {
+      background: rgba(252,249,248,0.95);
+      backdrop-filter: blur(6px);
+      padding: 6px 10px;
+      border-left: 1.5px solid var(--red);
+    }
+    .eng-callout-label .label-caps { font-size: 9px; color: var(--navy); }
+    .eng-callout-label p { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+    .eng-features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .eng-feat-item {}
+    .eng-feat-label {
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--outline);
+      margin-bottom: 4px;
+    }
+    .eng-feat-val {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* Export Stats */
+    .stats-section { background: var(--white); }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--outline-light);
+      border: 1px solid var(--outline-light);
+    }
+    .stat-cell {
+      background: var(--white);
+      padding: 48px 40px;
+    }
+
+    /* Partners section */
+    .partners-section { background: var(--surface-low); }
+    .partner-types {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .partner-card {
+      background: var(--white);
+      border: 1px solid var(--surface-high);
+      padding: 32px 28px;
+    }
+    .partner-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--surface-container);
+      border-radius: var(--r);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .partner-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .partner-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+    /* Final CTA */
+    .cta-section {
+      background: var(--navy);
+      padding: 100px 0;
+    }
+    .cta-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .cta-text .label-caps { color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+    .cta-headline {
+      font-family: var(--font-head);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .cta-sub {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+    }
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+    .cta-actions a { align-self: flex-start; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-text-col { padding: 60px 0 40px; }
+      .hero-image-col { height: 380px; }
+      .metrics-inner { grid-template-columns: repeat(2, 1fr); height: auto; }
+      .metric-item { height: 52px; }
+      .cat-grid { grid-template-columns: 1fr; }
+      .cm-inner { grid-template-columns: 1fr; gap: 48px; }
+      .eng-inner { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .partner-types { grid-template-columns: 1fr; }
+      .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVIGATION ═══════════════════════════════════════ -->
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Else Home">
+      <svg width="120" height="16" viewBox="0 0 177 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21.7219 14.3624C21.7219 14.8579 21.5992 15.3184 21.3492 15.7438C21.0597 16.2262 20.687 16.4674 20.2309 16.4674H4.56181C4.73723 17.8707 6.18441 18.5724 8.90776 18.5724H10.6444C11.846 18.5724 12.4424 19.3311 12.4424 20.844C12.4424 22.1377 11.8416 22.7824 10.6444 22.7824C8.4429 22.7824 6.95186 22.7385 6.17564 22.6464C4.33377 22.4316 2.95236 21.9404 2.03142 21.1642C0.676331 20.0064 0.000976562 18.6382 0.000976562 17.055V11.1084C0.000976562 9.07796 1.00524 7.54745 3.00937 6.52564C4.53111 5.74942 6.33352 5.36351 8.42536 5.36351H14.5386C16.2358 5.36351 17.7356 5.68803 19.0381 6.34146C20.8273 7.24924 21.7219 8.62626 21.7219 10.4681V14.358V14.3624Z" fill="#8A1002"/>
+        <path d="M27.5987 20.8308C27.5987 22.1333 26.9979 22.7823 25.8007 22.7823C24.9104 22.7823 24.3096 22.7078 24.0027 22.5631C23.4457 22.2956 23.165 21.7167 23.165 20.8264V2.95587C23.165 1.6534 23.7615 0.999972 24.9499 0.999972C25.8401 0.999972 26.4409 1.07452 26.7479 1.21924C27.318 1.48675 27.6031 2.06563 27.6031 2.95587V20.8264L27.5987 20.8308Z" fill="#8A1002"/>
+        <path d="M48.9335 17.546C48.9335 21.0367 46.5786 22.7821 41.873 22.7821H30.7955C29.607 22.7821 29.0106 22.1331 29.0106 20.8306C29.0106 19.3045 29.607 18.5414 30.7955 18.5414H41.8862C42.8159 18.5414 43.3334 18.5371 43.4386 18.5239C44.0701 18.4099 44.3859 18.0854 44.3859 17.546V16.9408C44.3859 16.3794 43.6447 16.0988 42.1668 16.0988H36.8473C31.5717 16.0988 28.936 14.4104 28.936 11.0292V10.1521C28.936 7.92874 30.2122 6.48594 32.7689 5.82374C33.9266 5.52992 36.0009 5.3852 38.9918 5.3852C40.2022 5.3852 40.8074 6.03424 40.8074 7.34109V7.69631C40.8074 8.98562 40.2022 9.63467 38.9918 9.63467H36.6324C34.4617 9.63467 33.3741 9.81008 33.3741 10.1565V10.9985C33.3741 11.5379 34.5362 11.8054 36.8649 11.8054H42.294C44.0219 11.8054 45.4471 12.108 46.5742 12.7132C48.1442 13.5684 48.9335 14.9322 48.9335 16.8048V17.546Z" fill="#8A1002"/>
+        <path d="M72.0183 14.3624C72.0183 14.8579 71.8955 15.3184 71.6456 15.7438C71.3561 16.2262 70.9834 16.4674 70.5273 16.4674H54.8582C55.0336 17.8707 56.4808 18.5724 59.2041 18.5724H60.9408C62.1424 18.5724 62.7388 19.3311 62.7388 20.844C62.7388 22.1377 62.138 22.7824 60.9408 22.7824C58.7393 22.7824 57.2482 22.7385 56.472 22.6464C54.6302 22.4316 53.2487 21.9404 52.3278 21.1642C50.9727 20.0064 50.2974 18.6382 50.2974 17.055V11.1084C50.2974 9.07796 51.3016 7.54745 53.3058 6.52564C54.8275 5.74942 56.6299 5.36351 58.7217 5.36351H64.835C66.5322 5.36351 68.032 5.68803 69.3345 6.34146C71.1237 7.24924 72.0183 8.62626 72.0183 10.4681V14.358V14.3624Z" fill="#8A1002"/>
+        <path d="M99.8562 20.8303C99.8562 21.7863 99.5098 22.3915 98.8169 22.6502C98.5669 22.7379 98.0319 22.7862 97.2031 22.7862C96.0146 22.7862 95.4182 22.1371 95.4182 20.8347V11.3183C95.4182 10.5772 94.9183 10.0992 93.914 9.88867C93.4798 9.80096 92.708 9.75272 91.6029 9.75272H82.5733V20.8347C82.5733 22.1371 81.9725 22.7862 80.7753 22.7862C79.885 22.7862 79.2842 22.7116 78.9773 22.5669C78.4203 22.2994 78.1396 21.7205 78.1396 20.8303V2.95971C78.1396 2.07386 78.4203 1.49498 78.9773 1.22308C79.2886 1.07836 79.8894 1.00381 80.7753 1.00381C81.9769 1.00381 82.5733 1.65724 82.5733 2.95971V5.50325H90.8267C93.4842 5.50325 95.4664 5.77953 96.7689 6.32771C98.8257 7.20479 99.8562 8.84932 99.8562 11.2613V20.8259V20.8303Z" fill="#03163D"/>
+        <path d="M122.74 17.1422C122.74 19.2516 121.788 20.7909 119.885 21.7557C118.521 22.4398 116.854 22.7818 114.89 22.7818H109.443C107.448 22.7818 105.698 22.3959 104.198 21.6197C102.255 20.6111 101.282 19.1156 101.282 17.1378V11.1912C101.282 9.12566 102.295 7.56884 104.321 6.52511C105.829 5.76205 107.531 5.38052 109.425 5.38052H114.885C120.117 5.38052 122.735 7.30571 122.735 11.1561V17.1334L122.74 17.1422Z" fill="#03163D"/>
+        <path d="M153.459 20.8303C153.459 22.1328 152.863 22.7818 151.674 22.7818C150.784 22.7818 150.179 22.7073 149.859 22.5626C149.289 22.2951 149.004 21.7162 149.004 20.826V10.8711C149.004 10.0159 147.837 9.59052 145.5 9.59052C145.21 9.59052 144.859 9.5949 144.451 9.60806C144.044 9.62121 143.811 9.6256 143.763 9.6256C142.917 9.6256 142.311 9.70015 141.947 9.84487C141.36 10.0905 141.062 10.586 141.062 11.3271V20.826C141.062 21.7118 140.781 22.2907 140.224 22.5626C139.904 22.7073 139.299 22.7818 138.408 22.7818C137.198 22.7818 136.593 22.1328 136.593 20.8303V11.3096C136.593 10.5597 136.325 10.0685 135.786 9.84487C135.488 9.70892 134.926 9.64314 134.111 9.64314C134.049 9.64314 133.791 9.63437 133.334 9.61683C132.878 9.59929 132.488 9.59052 132.155 9.59052C129.787 9.59052 128.603 10.0334 128.603 10.9193V20.826C128.603 21.7118 128.318 22.2907 127.747 22.5582C127.436 22.7029 126.835 22.7775 125.949 22.7775C124.761 22.7775 124.165 22.1284 124.165 20.826V11.2745C124.165 7.34518 126.734 5.38052 131.874 5.38052C133.83 5.38052 135.032 5.40244 135.488 5.4463C136.698 5.59102 137.843 5.99009 138.917 6.64352C139.943 6.02518 141.092 5.63926 142.377 5.48138C142.987 5.4156 144.197 5.38052 146.008 5.38052C150.973 5.38052 153.455 7.34518 153.455 11.2745V20.826L153.459 20.8303Z" fill="#03163D"/>
+        <path d="M176.544 14.3624C176.544 14.8579 176.421 15.3184 176.171 15.7438C175.882 16.2262 175.509 16.4674 175.053 16.4674H159.384C159.559 17.8707 161.007 18.5724 163.726 18.5724H165.462C166.664 18.5724 167.26 19.331 167.26 20.844C167.26 22.1377 166.659 22.7824 165.462 22.7824C163.261 22.7824 161.77 22.7385 160.994 22.6464C159.152 22.4315 157.77 21.9403 156.849 21.1641C155.494 20.0064 154.819 18.6381 154.819 17.055V11.1084C154.819 9.07793 155.823 7.54741 157.827 6.52561C159.349 5.74939 161.151 5.36347 163.243 5.36347H169.357C171.054 5.36347 172.553 5.688 173.856 6.34142C175.645 7.24921 176.54 8.62622 176.54 10.4681V14.358L176.544 14.3624Z" fill="#03163D"/>
+      </svg>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="bespoke.html">Bespoke</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="bespoke.html" class="btn btn-primary btn-sm">Start Custom Project</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══ HERO ═════════════════════════════════════════════ -->
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-inner">
+
+      <div class="hero-text-col reveal">
+        <div class="hero-kicker">
+          <span class="label-caps">B2B Manufacturing  ·  Export Ready</span>
+        </div>
+        <h1 class="hero-headline">
+          Precision<br>Manufactured.<br>
+          <em>Infinitely<br>Configurable.</em>
+        </h1>
+        <p class="hero-sub">
+          Custom bed bases, mattresses, and toppers engineered
+          for export markets, hotel contracts, and retail partners
+          worldwide. Every order built to your exact specification.
+        </p>
+        <div class="hero-actions">
+          <a href="collections.html" class="btn btn-primary btn-lg">Explore Collections</a>
+          <a href="bespoke.html" class="btn btn-outline btn-lg">Start Custom Project</a>
+        </div>
+      </div>
+
+      <div class="hero-image-col">
+        <img
+          src="https://placehold.co/900x720/ebe7e7/03163D?text=Else+Home+Premium+Bed+System"
+          alt="Else Home precision bed system"
+          loading="eager"
+        >
+        <div class="hero-badge">
+          <div class="label-caps">Custom Manufacturing</div>
+          <p>Prototype to bulk production</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="metrics-bar">
+    <div class="container">
+      <div class="metrics-inner">
+        <div class="metric-item">
+          <span class="label-caps">40+ Fabric Options</span>
+        </div>
+        <div class="metric-item">
+          <span class="label-caps">Custom Dimensions</span>
+        </div>
+        <div class="metric-item">
+          <span class="label-caps">B2B Manufacturing</span>
+        </div>
+        <div class="metric-item">
+          <span class="label-caps">Export Ready</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PRODUCT FAMILIES ══════════════════════════════════ -->
+<section class="section" style="background: var(--white);">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label-row">
+        <span class="label-caps">Product Families</span>
+      </div>
+      <h2 class="h-lg">Three Core Systems,<br>Infinite Configurations</h2>
+    </div>
+
+    <div class="cat-grid" id="catGrid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CUSTOM MANUFACTURING ═════════════════════════════ -->
+<section class="cm-section">
+  <div class="container">
+    <div class="cm-inner">
+
+      <div class="cm-text reveal">
+        <div class="label-caps" style="color:rgba(255,255,255,0.4);margin-bottom:16px;">Custom Manufacturing</div>
+        <h2 class="cm-headline">Your Design.<br>Our Production.</h2>
+        <p class="cm-desc">
+          We don't sell from a fixed catalogue — we manufacture to your specification.
+          From single-model prototypes to full-scale production runs, every order is
+          engineered from the inside out. Your brief, our precision.
+        </p>
+        <ul class="cm-features">
+          <li>Custom dimensions and structural configurations</li>
+          <li>40+ fabric and material selections</li>
+          <li>Prototype development and client approval</li>
+          <li>OEM and private label manufacturing</li>
+          <li>Bulk production for hotels and retailers</li>
+          <li>Export packaging and logistics support</li>
+        </ul>
+        <a href="bespoke.html" class="btn btn-cta btn-lg">Start Custom Project</a>
+      </div>
+
+      <div class="cm-visual reveal reveal-delay-2">
+        <div class="cm-visual-grid">
+          <div class="cm-grid-item">
+            <div class="label-caps" style="color:rgba(255,255,255,0.35);">Customisation</div>
+            <p>Fabric, dimension, and structural configuration to your exact brief</p>
+          </div>
+          <div class="cm-grid-item">
+            <div class="label-caps" style="color:rgba(255,255,255,0.35);">Prototyping</div>
+            <p>Sample production and client sign-off before bulk run commences</p>
+          </div>
+          <div class="cm-grid-item">
+            <div class="label-caps" style="color:rgba(255,255,255,0.35);">Bulk Production</div>
+            <p>High-volume manufacturing for hotel groups and retail partners</p>
+          </div>
+          <div class="cm-grid-item">
+            <div class="label-caps" style="color:rgba(255,255,255,0.35);">Export</div>
+            <p>International logistics, export documentation, and compliance</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ENGINEERING QUALITY ══════════════════════════════ -->
+<section class="section" style="background:var(--surface-low);">
+  <div class="container">
+    <div class="eng-inner">
+
+      <div class="eng-image-wrap reveal">
+        <img
+          src="https://placehold.co/760x560/f0edec/03163D?text=Technical+Construction+Detail"
+          alt="Else Home internal construction detail"
+        >
+        <div class="eng-callouts">
+          <div class="eng-callout" style="top:18%;left:8%;">
+            <div class="eng-callout-dot"></div>
+            <div class="eng-callout-label">
+              <div class="label-caps">Hardwood Frame</div>
+              <p>Kiln-dried structural timber</p>
+            </div>
+          </div>
+          <div class="eng-callout" style="top:42%;right:6%;">
+            <div class="eng-callout-dot"></div>
+            <div class="eng-callout-label">
+              <div class="label-caps">Pocket Spring Layer</div>
+              <p>Individually nested, 1.2 mm steel</p>
+            </div>
+          </div>
+          <div class="eng-callout" style="bottom:20%;left:12%;">
+            <div class="eng-callout-dot"></div>
+            <div class="eng-callout-label">
+              <div class="label-caps">HR Foam Core</div>
+              <p>High-resilience 35 kg/m³</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="section-label-row" style="margin-bottom:16px;">
+          <span class="label-caps">Engineering Standard</span>
+        </div>
+        <h2 class="h-lg" style="margin-bottom:20px;">Built From<br>the Inside Out</h2>
+        <p class="body-lg" style="margin-bottom:32px;">
+          Every Else Home product is engineered at the component level.
+          From kiln-dried hardwood frames to precision-nested pocket springs,
+          quality is built in — not added on.
+        </p>
+
+        <div class="eng-features-grid">
+          <div class="eng-feat-item">
+            <div class="eng-feat-label">Frame</div>
+            <div class="eng-feat-val">Kiln-dried hardwood</div>
+          </div>
+          <div class="eng-feat-item">
+            <div class="eng-feat-label">Springs</div>
+            <div class="eng-feat-val">Tempered steel, nested</div>
+          </div>
+          <div class="eng-feat-item">
+            <div class="eng-feat-label">Upholstery</div>
+            <div class="eng-feat-val">40+ certified fabrics</div>
+          </div>
+          <div class="eng-feat-item">
+            <div class="eng-feat-label">Hardware</div>
+            <div class="eng-feat-val">Grade A fixings</div>
+          </div>
+          <div class="eng-feat-item">
+            <div class="eng-feat-label">Testing</div>
+            <div class="eng-feat-val">EN 1725 compliant</div>
+          </div>
+          <div class="eng-feat-item">
+            <div class="eng-feat-label">Lead Time</div>
+            <div class="eng-feat-val">From 4 weeks</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ EXPORT STATS ══════════════════════════════════════ -->
+<section class="stats-section section-sm">
+  <div class="container">
+    <div class="stats-grid reveal">
+      <div class="stat-cell">
+        <span class="stat-number">40+</span>
+        <span class="stat-label">Export Markets</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number">200K+</span>
+        <span class="stat-label">Units Per Year</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number">15+</span>
+        <span class="stat-label">Years Manufacturing</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Global Partners</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ WHO WE WORK WITH ══════════════════════════════════ -->
+<section class="partners-section section-sm">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label-row">
+        <span class="label-caps">Who We Work With</span>
+      </div>
+      <h2 class="h-md">Built for Partnership</h2>
+    </div>
+
+    <div class="partner-types">
+      <div class="partner-card reveal reveal-delay-1">
+        <div class="partner-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#03163D" stroke-width="1.5">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </div>
+        <div class="partner-title">Hotel Groups & Hospitality</div>
+        <p class="partner-desc">Custom specifications, matched branding, and bulk production for full hotel openings. Single point of contact for procurement teams.</p>
+      </div>
+      <div class="partner-card reveal reveal-delay-2">
+        <div class="partner-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#03163D" stroke-width="1.5">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9,22 9,12 15,12 15,22"/>
+          </svg>
+        </div>
+        <div class="partner-title">Retailers & Distributors</div>
+        <p class="partner-desc">OEM and private label production. Your brand, our manufacturing. Retail-ready packaging and drop-ship fulfilment available.</p>
+      </div>
+      <div class="partner-card reveal reveal-delay-3">
+        <div class="partner-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#03163D" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/>
+          </svg>
+        </div>
+        <div class="partner-title">Import & Export Partners</div>
+        <p class="partner-desc">Full export documentation, container loading, and international logistics. Compliant with EU, UK, and GCC regulations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FINAL CTA ═════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="cta-text reveal">
+        <div class="label-caps" style="color:rgba(255,255,255,0.35);margin-bottom:16px;">Start the Conversation</div>
+        <h2 class="cta-headline">Looking for a<br>Manufacturing Partner?</h2>
+        <p class="cta-sub">
+          Whether you need a single bespoke model or full-scale production,
+          we engineer every order with the same precision. Tell us your brief.
+        </p>
+      </div>
+      <div class="cta-actions reveal reveal-delay-2">
+        <a href="bespoke.html" class="btn btn-cta btn-lg">Request a Custom Project</a>
+        <a href="collections.html" class="btn btn-ghost-light">View All Collections</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <svg width="110" height="14" viewBox="0 0 177 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.7219 14.3624C21.7219 14.8579 21.5992 15.3184 21.3492 15.7438C21.0597 16.2262 20.687 16.4674 20.2309 16.4674H4.56181C4.73723 17.8707 6.18441 18.5724 8.90776 18.5724H10.6444C11.846 18.5724 12.4424 19.3311 12.4424 20.844C12.4424 22.1377 11.8416 22.7824 10.6444 22.7824C8.4429 22.7824 6.95186 22.7385 6.17564 22.6464C4.33377 22.4316 2.95236 21.9404 2.03142 21.1642C0.676331 20.0064 0.000976562 18.6382 0.000976562 17.055V11.1084C0.000976562 9.07796 1.00524 7.54745 3.00937 6.52564C4.53111 5.74942 6.33352 5.36351 8.42536 5.36351H14.5386C16.2358 5.36351 17.7356 5.68803 19.0381 6.34146C20.8273 7.24924 21.7219 8.62626 21.7219 10.4681V14.358Z" fill="#8A1002"/>
+            <path d="M27.5987 20.8308C27.5987 22.1333 26.9979 22.7823 25.8007 22.7823C24.9104 22.7823 24.3096 22.7078 24.0027 22.5631C23.4457 22.2956 23.165 21.7167 23.165 20.8264V2.95587C23.165 1.6534 23.7615 0.999972 24.9499 0.999972C25.8401 0.999972 26.4409 1.07452 26.7479 1.21924C27.318 1.48675 27.6031 2.06563 27.6031 2.95587V20.8264Z" fill="#8A1002"/>
+            <path d="M48.9335 17.546C48.9335 21.0367 46.5786 22.7821 41.873 22.7821H30.7955C29.607 22.7821 29.0106 22.1331 29.0106 20.8306C29.0106 19.3045 29.607 18.5414 30.7955 18.5414H41.8862C42.8159 18.5414 43.3334 18.5371 43.4386 18.5239C44.0701 18.4099 44.3859 18.0854 44.3859 17.546V16.9408C44.3859 16.3794 43.6447 16.0988 42.1668 16.0988H36.8473C31.5717 16.0988 28.936 14.4104 28.936 11.0292V10.1521C28.936 7.92874 30.2122 6.48594 32.7689 5.82374C33.9266 5.52992 36.0009 5.3852 38.9918 5.3852C40.2022 5.3852 40.8074 6.03424 40.8074 7.34109V7.69631C40.8074 8.98562 40.2022 9.63467 38.9918 9.63467H36.6324C34.4617 9.63467 33.3741 9.81008 33.3741 10.1565V10.9985C33.3741 11.5379 34.5362 11.8054 36.8649 11.8054H42.294C44.0219 11.8054 45.4471 12.108 46.5742 12.7132C48.1442 13.5684 48.9335 14.9322 48.9335 16.8048Z" fill="#8A1002"/>
+            <path d="M72.0183 14.3624C72.0183 14.8579 71.8955 15.3184 71.6456 15.7438C71.3561 16.2262 70.9834 16.4674 70.5273 16.4674H54.8582C55.0336 17.8707 56.4808 18.5724 59.2041 18.5724H60.9408C62.1424 18.5724 62.7388 19.3311 62.7388 20.844C62.7388 22.1377 62.138 22.7824 60.9408 22.7824C58.7393 22.7824 57.2482 22.7385 56.472 22.6464C54.6302 22.4316 53.2487 21.9404 52.3278 21.1642C50.9727 20.0064 50.2974 18.6382 50.2974 17.055V11.1084C50.2974 9.07796 51.3016 7.54745 53.3058 6.52564C54.8275 5.74942 56.6299 5.36351 58.7217 5.36351H64.835C66.5322 5.36351 68.032 5.68803 69.3345 6.34146C71.1237 7.24924 72.0183 8.62626 72.0183 10.4681Z" fill="#8A1002"/>
+            <path d="M99.8562 20.8303C99.8562 21.7863 99.5098 22.3915 98.8169 22.6502C98.5669 22.7379 98.0319 22.7862 97.2031 22.7862C96.0146 22.7862 95.4182 22.1371 95.4182 20.8347V11.3183C95.4182 10.5772 94.9183 10.0992 93.914 9.88867C93.4798 9.80096 92.708 9.75272 91.6029 9.75272H82.5733V20.8347C82.5733 22.1371 81.9725 22.7862 80.7753 22.7862C79.885 22.7862 79.2842 22.7116 78.9773 22.5669C78.4203 22.2994 78.1396 21.7205 78.1396 20.8303V2.95971C78.1396 2.07386 78.4203 1.49498 78.9773 1.22308C79.2886 1.07836 79.8894 1.00381 80.7753 1.00381C81.9769 1.00381 82.5733 1.65724 82.5733 2.95971V5.50325H90.8267C93.4842 5.50325 95.4664 5.77953 96.7689 6.32771C98.8257 7.20479 99.8562 8.84932 99.8562 11.2613Z" fill="white"/>
+            <path d="M122.74 17.1422C122.74 19.2516 121.788 20.7909 119.885 21.7557C118.521 22.4398 116.854 22.7818 114.89 22.7818H109.443C107.448 22.7818 105.698 22.3959 104.198 21.6197C102.255 20.6111 101.282 19.1156 101.282 17.1378V11.1912C101.282 9.12566 102.295 7.56884 104.321 6.52511C105.829 5.76205 107.531 5.38052 109.425 5.38052H114.885C120.117 5.38052 122.735 7.30571 122.735 11.1561Z" fill="white"/>
+            <path d="M153.459 20.8303C153.459 22.1328 152.863 22.7818 151.674 22.7818C150.784 22.7818 150.179 22.7073 149.859 22.5626C149.289 22.2951 149.004 21.7162 149.004 20.826V10.8711C149.004 10.0159 147.837 9.59052 145.5 9.59052C145.21 9.59052 144.859 9.5949 144.451 9.60806C144.044 9.62121 143.811 9.6256 143.763 9.6256C142.917 9.6256 142.311 9.70015 141.947 9.84487C141.36 10.0905 141.062 10.586 141.062 11.3271V20.826C141.062 21.7118 140.781 22.2907 140.224 22.5626C139.904 22.7073 139.299 22.7818 138.408 22.7818C137.198 22.7818 136.593 22.1328 136.593 20.8303V11.3096C136.593 10.5597 136.325 10.0685 135.786 9.84487C135.488 9.70892 134.926 9.64314 134.111 9.64314C134.049 9.64314 133.791 9.63437 133.334 9.61683C132.878 9.59929 132.488 9.59052 132.155 9.59052C129.787 9.59052 128.603 10.0334 128.603 10.9193V20.826C128.603 21.7118 128.318 22.2907 127.747 22.5582C127.436 22.7029 126.835 22.7775 125.949 22.7775C124.761 22.7775 124.165 22.1284 124.165 20.826V11.2745C124.165 7.34518 126.734 5.38052 131.874 5.38052C133.83 5.38052 135.032 5.40244 135.488 5.4463C136.698 5.59102 137.843 5.99009 138.917 6.64352C139.943 6.02518 141.092 5.63926 142.377 5.48138C142.987 5.4156 144.197 5.38052 146.008 5.38052C150.973 5.38052 153.455 7.34518 153.455 11.2745Z" fill="white"/>
+            <path d="M176.544 14.3624C176.544 14.8579 176.421 15.3184 176.171 15.7438C175.882 16.2262 175.509 16.4674 175.053 16.4674H159.384C159.559 17.8707 161.007 18.5724 163.726 18.5724H165.462C166.664 18.5724 167.26 19.331 167.26 20.844C167.26 22.1377 166.659 22.7824 165.462 22.7824C163.261 22.7824 161.77 22.7385 160.994 22.6464C159.152 22.4315 157.77 21.9403 156.849 21.1641C155.494 20.0064 154.819 18.6381 154.819 17.055V11.1084C154.819 9.07793 155.823 7.54741 157.827 6.52561C159.349 5.74939 161.151 5.36347 163.243 5.36347H169.357C171.054 5.36347 172.553 5.688 173.856 6.34142C175.645 7.24921 176.54 8.62622 176.54 10.4681Z" fill="white"/>
+          </svg>
+        </div>
+        <p>Precision-manufactured bed systems for export markets, hotel contracts, and retail partners worldwide. Based in Turkey, built for the world.</p>
+        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;">A manufacturer, not a retailer</span>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">Collections</div>
+        <ul>
+          <li><a href="collections.html?cat=bed-base">Bed Base Systems</a></li>
+          <li><a href="collections.html?cat=mattress">Mattresses</a></li>
+          <li><a href="collections.html?cat=topper">Toppers</a></li>
+          <li><a href="collections.html">All Products</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">Company</div>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="bespoke.html">Bespoke Manufacturing</a></li>
+          <li><a href="bespoke.html#contact">B2B Enquiries</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <ul>
+          <li><a href="mailto:export@elsehome.com">export@elsehome.com</a></li>
+          <li><a href="mailto:info@elsehome.com">info@elsehome.com</a></li>
+          <li><a href="bespoke.html#contact">Request a Project</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2024 Else Home. All rights reserved.</span>
+      <span>Engineered in Turkey. Exported worldwide.</span>
+    </div>
+  </div>
+</footer>
+
+
+<script src="data.js"></script>
+<script>
+  // ── Category Cards ──────────────────────────────────────
+  const grid = document.getElementById('catGrid');
+  if (grid) {
+    categories.forEach(cat => {
+      grid.insertAdjacentHTML('beforeend', `
+        <a href="collections.html?cat=${cat.id}" class="cat-card reveal">
+          <div class="cat-card-image">
+            <img src="${cat.image}" alt="${cat.name}" loading="lazy">
+          </div>
+          <div class="cat-card-body">
+            <div class="cat-count">${cat.count} Models</div>
+            <div class="cat-name">${cat.name}</div>
+            <p class="cat-desc">${cat.description}</p>
+            <span class="cat-link">Explore Collection
+              <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+                <path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      `);
+    });
+  }
+
+  // ── Scroll Reveal ────────────────────────────────────────
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

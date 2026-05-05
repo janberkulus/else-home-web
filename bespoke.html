@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bespoke Manufacturing — Else Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Bespoke hero */
+    .bespoke-hero {
+      background: var(--navy);
+      padding: 100px 0 80px;
+    }
+    .bespoke-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .bespoke-hero-tag { color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .bespoke-hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      color: white;
+      margin-bottom: 24px;
+    }
+    .bespoke-hero h1 em {
+      font-style: normal;
+      color: rgba(255,255,255,0.45);
+      font-weight: 500;
+    }
+    .bespoke-hero-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+    .bespoke-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .bespoke-hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 40px;
+    }
+    .bespoke-capability {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .bespoke-capability:last-child { border-bottom: none; }
+    .bespoke-cap-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(138,16,2,0.2);
+      border: 1px solid rgba(138,16,2,0.3);
+      border-radius: var(--r);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .bespoke-cap-title {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 3px;
+    }
+    .bespoke-cap-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+    /* Process */
+    .process-section { padding: var(--section-gap) 0; background: var(--white); }
+    .process-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .process-sticky { position: sticky; top: 100px; }
+    .process-note {
+      margin-top: 32px;
+      padding: 20px;
+      background: var(--surface-container);
+      border-left: 2px solid var(--red);
+    }
+    .process-note .label-caps { color: var(--navy); margin-bottom: 6px; }
+    .process-note p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* Materials */
+    .materials-section { padding: var(--section-gap) 0; background: var(--surface-low); }
+    .materials-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .material-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .material-card {
+      background: var(--white);
+      border: 1px solid var(--surface-high);
+      padding: 24px 20px;
+    }
+    .material-card-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--surface-container);
+      border-radius: var(--r);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .material-card-name {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .material-card-desc { font-size: 12px; color: var(--text-muted); line-height: 1.55; }
+
+    /* Fabric palette */
+    .fabric-palette {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .palette-swatch {
+      height: 40px;
+      border-radius: var(--r-sm);
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.15s;
+      cursor: default;
+    }
+    .palette-swatch:hover { transform: scale(1.08); }
+
+    /* Contact form */
+    .contact-section {
+      padding: var(--section-gap) 0;
+      background: var(--white);
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-info {}
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--surface-high);
+    }
+    .contact-info-item:last-child { border-bottom: none; }
+    .contact-info-label {
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--outline);
+    }
+    .contact-info-val {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .contact-info-val a { color: var(--navy); border-bottom: 1px solid var(--outline-light); transition: color 0.15s, border-color 0.15s; }
+    .contact-info-val a:hover { color: var(--red); border-color: var(--red); }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .submit-btn {
+      background: var(--red);
+      color: white;
+      border: none;
+      padding: 15px 36px;
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: var(--r);
+      cursor: pointer;
+      transition: background 0.18s;
+      width: 100%;
+      margin-top: 8px;
+    }
+    .submit-btn:hover { background: var(--red-hover); }
+
+    @media (max-width: 900px) {
+      .bespoke-hero-inner { grid-template-columns: 1fr; }
+      .process-inner { grid-template-columns: 1fr; }
+      .process-sticky { position: static; }
+      .materials-inner { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Else Home">
+      <svg width="120" height="16" viewBox="0 0 177 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21.7219 14.3624C21.7219 14.8579 21.5992 15.3184 21.3492 15.7438C21.0597 16.2262 20.687 16.4674 20.2309 16.4674H4.56181C4.73723 17.8707 6.18441 18.5724 8.90776 18.5724H10.6444C11.846 18.5724 12.4424 19.3311 12.4424 20.844C12.4424 22.1377 11.8416 22.7824 10.6444 22.7824C8.4429 22.7824 6.17564 22.6464 4.33377 22.4316C2.95236 21.9404 2.03142 21.1642 0.676331 20.0064C0.000976562 18.6382 0.000976562 17.055 0.000976562 11.1084C0.000976562 9.07796 1.00524 7.54745 3.00937 6.52564C4.53111 5.74942 6.33352 5.36351 8.42536 5.36351H14.5386C16.2358 5.36351 17.7356 5.68803 19.0381 6.34146C20.8273 7.24924 21.7219 8.62626 21.7219 10.4681Z" fill="#8A1002"/>
+        <path d="M27.5987 20.8308C27.5987 22.1333 26.9979 22.7823 25.8007 22.7823C24.9104 22.7823 24.3096 22.7078 24.0027 22.5631C23.4457 22.2956 23.165 21.7167 23.165 20.8264V2.95587C23.165 1.6534 23.7615 0.999972 24.9499 0.999972C25.8401 0.999972 26.4409 1.07452 26.7479 1.21924C27.318 1.48675 27.6031 2.06563 27.6031 2.95587Z" fill="#8A1002"/>
+        <path d="M48.9335 17.546C48.9335 21.0367 46.5786 22.7821 41.873 22.7821H30.7955C29.607 22.7821 29.0106 22.1331 29.0106 20.8306C29.0106 19.3045 29.607 18.5414 30.7955 18.5414H41.8862C44.0701 18.4099 44.3859 18.0854 44.3859 17.546V16.9408C44.3859 16.3794 43.6447 16.0988 42.1668 16.0988H36.8473C31.5717 16.0988 28.936 14.4104 28.936 11.0292V10.1521C28.936 7.92874 30.2122 6.48594 32.7689 5.82374C33.9266 5.52992 36.0009 5.3852 38.9918 5.3852Z" fill="#8A1002"/>
+        <path d="M72.0183 14.3624C72.0183 14.8579 71.8955 15.3184 71.6456 15.7438C71.3561 16.2262 70.9834 16.4674 70.5273 16.4674H54.8582C55.0336 17.8707 56.4808 18.5724 59.2041 18.5724H60.9408C62.1424 18.5724 62.7388 19.3311 62.7388 20.844C62.7388 22.1377 62.138 22.7824 60.9408 22.7824Z" fill="#8A1002"/>
+        <path d="M99.8562 20.8303C99.8562 21.7863 99.5098 22.3915 98.8169 22.6502C98.5669 22.7379 98.0319 22.7862 97.2031 22.7862C96.0146 22.7862 95.4182 22.1371 95.4182 20.8347V11.3183C95.4182 10.5772 94.9183 10.0992 93.914 9.88867H82.5733V20.8347C82.5733 22.1371 81.9725 22.7862 80.7753 22.7862C79.885 22.7862 79.2842 22.7116 78.9773 22.5669C78.4203 22.2994 78.1396 21.7205 78.1396 20.8303V2.95971Z" fill="#03163D"/>
+        <path d="M122.74 17.1422C122.74 19.2516 121.788 20.7909 119.885 21.7557C118.521 22.4398 116.854 22.7818 114.89 22.7818H109.443C107.448 22.7818 105.698 22.3959 104.198 21.6197C102.255 20.6111 101.282 19.1156 101.282 17.1378V11.1912C101.282 9.12566 102.295 7.56884 104.321 6.52511C105.829 5.76205 107.531 5.38052 109.425 5.38052H114.885C120.117 5.38052 122.735 7.30571 122.735 11.1561Z" fill="#03163D"/>
+        <path d="M153.459 20.8303C153.459 22.1328 152.863 22.7818 151.674 22.7818C150.784 22.7818 150.179 22.7073 149.859 22.5626C149.289 22.2951 149.004 21.7162 149.004 20.826V10.8711C149.004 10.0159 147.837 9.59052 145.5 9.59052C145.21 9.59052 144.451 9.60806 143.763 9.6256C142.917 9.6256 142.311 9.70015 141.947 9.84487C141.36 10.0905 141.062 10.586 141.062 11.3271V20.826C141.062 21.7118 140.781 22.2907 140.224 22.5626C139.904 22.7073 139.299 22.7818 138.408 22.7818C137.198 22.7818 136.593 22.1328 136.593 20.8303V11.3096Z" fill="#03163D"/>
+        <path d="M176.544 14.3624C176.544 14.8579 176.421 15.3184 176.171 15.7438C175.882 16.2262 175.509 16.4674 175.053 16.4674H159.384C159.559 17.8707 161.007 18.5724 163.726 18.5724H165.462C166.664 18.5724 167.26 19.331 167.26 20.844C167.26 22.1377 166.659 22.7824 165.462 22.7824Z" fill="#03163D"/>
+      </svg>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="bespoke.html" class="active">Bespoke</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="#contact" class="btn btn-cta btn-sm">Request a Project</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ═══ HERO ═════════════════════════════════════════════ -->
+<section class="bespoke-hero">
+  <div class="container">
+    <div class="bespoke-hero-inner">
+      <div class="reveal">
+        <div class="bespoke-hero-tag label-caps">Bespoke Manufacturing</div>
+        <h1>
+          Built Around<br>
+          Your Exact<br>
+          <em>Specifications.</em>
+        </h1>
+        <p class="bespoke-hero-sub">
+          No minimum catalogue. No fixed designs. Every Else Home product
+          is manufactured to a client brief — and if the brief doesn't match
+          anything in our range, we engineer it from scratch.
+        </p>
+        <div class="bespoke-hero-actions">
+          <a href="#contact" class="btn btn-cta btn-lg">Start a Custom Project</a>
+          <a href="collections.html" class="btn btn-ghost-light">Browse Base Models</a>
+        </div>
+      </div>
+
+      <div class="bespoke-hero-right reveal reveal-delay-1">
+        <div class="bespoke-capability">
+          <div class="bespoke-cap-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A1002" stroke-width="1.8"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </div>
+          <div>
+            <div class="bespoke-cap-title">Custom Dimensions</div>
+            <p class="bespoke-cap-desc">Any width, length, and height. Non-standard sizes as standard.</p>
+          </div>
+        </div>
+        <div class="bespoke-capability">
+          <div class="bespoke-cap-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A1002" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div>
+            <div class="bespoke-cap-title">Material Selection</div>
+            <p class="bespoke-cap-desc">40+ fabric options, custom filling specifications, and structural materials sourced to your requirement.</p>
+          </div>
+        </div>
+        <div class="bespoke-capability">
+          <div class="bespoke-cap-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A1002" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <div class="bespoke-cap-title">New Model Development</div>
+            <p class="bespoke-cap-desc">Bring us a sketch, a reference, or a brief. We'll engineer the full production model.</p>
+          </div>
+        </div>
+        <div class="bespoke-capability">
+          <div class="bespoke-cap-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A1002" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <div class="bespoke-cap-title">OEM & Private Label</div>
+            <p class="bespoke-cap-desc">Your brand, your labelling, your packaging. We manufacture — you sell.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PROCESS ═══════════════════════════════════════════ -->
+<section class="process-section">
+  <div class="container">
+    <div class="process-inner">
+      <div class="process-sticky">
+        <div class="reveal">
+          <div class="section-label-row" style="margin-bottom:16px;">
+            <span class="label-caps">How It Works</span>
+          </div>
+          <h2 class="h-lg">From Brief<br>to Production</h2>
+          <p class="body-md" style="margin-top:16px;">
+            Our process is structured for clarity. You'll know exactly where
+            the project stands at every stage — no ambiguity, no surprises.
+          </p>
+          <div class="process-note">
+            <div class="label-caps">Typical Timeline</div>
+            <p>Prototype: 2–4 weeks from brief sign-off. Bulk production: 4–8 weeks from prototype approval. Timelines vary by complexity and volume.</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <ol class="steps-list">
+          <li class="step-item reveal">
+            <span class="step-num">01</span>
+            <div class="step-content">
+              <div class="step-title">Project Brief</div>
+              <p class="step-desc">
+                Submit your requirements via our enquiry form or by email.
+                Include dimensions, intended use, quantity, and any reference
+                materials. The more detail, the faster we can respond with accuracy.
+              </p>
+            </div>
+          </li>
+          <li class="step-item reveal reveal-delay-1">
+            <span class="step-num">02</span>
+            <div class="step-content">
+              <div class="step-title">Technical Review</div>
+              <p class="step-desc">
+                Our production team reviews your brief and provides a detailed
+                specification sheet — materials, construction method, component
+                sources, and lead time estimate. We resolve any ambiguities at this stage.
+              </p>
+            </div>
+          </li>
+          <li class="step-item reveal reveal-delay-2">
+            <span class="step-num">03</span>
+            <div class="step-content">
+              <div class="step-title">Material &amp; Fabric Selection</div>
+              <p class="step-desc">
+                We provide a curated selection of fabrics, fillings, and structural
+                materials relevant to your specification. Physical swatches and material
+                data sheets available on request. You confirm your selections.
+              </p>
+            </div>
+          </li>
+          <li class="step-item reveal reveal-delay-3">
+            <span class="step-num">04</span>
+            <div class="step-content">
+              <div class="step-title">Prototype &amp; Approval</div>
+              <p class="step-desc">
+                We manufacture a physical prototype to your approved specification.
+                You inspect, approve, or request adjustments. Production does not
+                commence until you are satisfied with the sample.
+              </p>
+            </div>
+          </li>
+          <li class="step-item reveal">
+            <span class="step-num">05</span>
+            <div class="step-content">
+              <div class="step-title">Production Run</div>
+              <p class="step-desc">
+                Full production commences on prototype approval. Quality checks
+                at multiple stages. Progress updates provided on request.
+                All units match the approved prototype specification.
+              </p>
+            </div>
+          </li>
+          <li class="step-item reveal">
+            <span class="step-num">06</span>
+            <div class="step-content">
+              <div class="step-title">Export &amp; Delivery</div>
+              <p class="step-desc">
+                Products are packed to export specification, palletised or
+                container-loaded per your requirement. Full export documentation
+                provided — commercial invoice, packing list, certificate of origin.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ MATERIALS ═════════════════════════════════════════ -->
+<section class="materials-section">
+  <div class="container">
+    <div class="materials-inner">
+      <div class="reveal">
+        <div class="section-label-row" style="margin-bottom:16px;">
+          <span class="label-caps">What We Work With</span>
+        </div>
+        <h2 class="h-lg">Material &amp;<br>Fabric Capability</h2>
+        <p class="body-md" style="margin-top:16px;margin-bottom:8px;">
+          Our material library is continuously updated. If you need something
+          specific — a particular fibre, a GSM weight, a flame-retardant rating —
+          we source it.
+        </p>
+
+        <div class="material-grid">
+          <div class="material-card reveal">
+            <div class="material-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#03163D" stroke-width="1.5"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <div class="material-card-name">Structural Frames</div>
+            <p class="material-card-desc">Kiln-dried solid hardwood, MDF/HDF composite, steel tube, birch ply. Sourced for specification.</p>
+          </div>
+          <div class="material-card reveal reveal-delay-1">
+            <div class="material-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#03163D" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg>
+            </div>
+            <div class="material-card-name">Upholstery Fabrics</div>
+            <p class="material-card-desc">40+ stock options. Custom fabric sourcing available — bring us your spec or sample.</p>
+          </div>
+          <div class="material-card reveal reveal-delay-2">
+            <div class="material-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#03163D" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <div class="material-card-name">Foam &amp; Fillings</div>
+            <p class="material-card-desc">HR foam in multiple densities, visco-elastic, gel-infused, natural latex, wool, cotton.</p>
+          </div>
+          <div class="material-card reveal reveal-delay-3">
+            <div class="material-card-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#03163D" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="material-card-name">Spring Systems</div>
+            <p class="material-card-desc">Pocket springs (800–2000 count), micro-coil, open-coil, and Bonnell. Custom gauge and tension.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div style="background:var(--white);border:1px solid var(--surface-high);padding:32px;">
+          <div class="label-caps" style="margin-bottom:16px;">Fabric Palette Preview</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:20px;">
+            40+ certified fabric options across 4 colour families.
+            All fabrics tested to EN 1021 (cigarette ignition) as standard.
+          </p>
+          <div class="fabric-palette" id="fabricPalettePreview"></div>
+          <p style="font-size:12px;color:var(--outline);margin-top:16px;">Physical swatch books available on request.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CONTACT / ENQUIRY FORM ════════════════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-label-row">
+        <span class="label-caps">Get in Touch</span>
+      </div>
+      <h2 class="h-lg">Start Your Custom Project</h2>
+      <p class="body-md" style="margin-top:12px;max-width:560px;">
+        Tell us about your project. We respond within one business day with
+        a preliminary assessment and any questions we need answered.
+      </p>
+    </div>
+
+    <div class="contact-inner">
+      <div class="reveal">
+        <div class="contact-info-item">
+          <span class="contact-info-label">Export Enquiries</span>
+          <span class="contact-info-val"><a href="mailto:export@elsehome.com">export@elsehome.com</a></span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">General Enquiries</span>
+          <span class="contact-info-val"><a href="mailto:info@elsehome.com">info@elsehome.com</a></span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Response Time</span>
+          <span class="contact-info-val">Within 1 business day</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Minimum Order</span>
+          <span class="contact-info-val">No minimum for custom projects</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Sample Service</span>
+          <span class="contact-info-val">Physical swatches and prototypes available</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Location</span>
+          <span class="contact-info-val">Istanbul, Turkey</span>
+        </div>
+
+        <div style="margin-top:32px;padding:20px 20px 20px 16px;background:var(--surface-container);border-left:2px solid var(--navy);">
+          <div class="label-caps" style="color:var(--navy);margin-bottom:8px;">Not sure where to start?</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">
+            Browse our existing models to identify a base specification,
+            then contact us to discuss modifications. Most custom projects
+            begin as an adaptation of an existing model.
+          </p>
+          <a href="collections.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-head);font-size:12px;font-weight:600;letter-spacing:0.04em;color:var(--navy);margin-top:12px;border-bottom:1px solid var(--outline-light);padding-bottom:2px;">
+            Browse Collections →
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <form id="enquiryForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" required placeholder="Your first name">
+            </div>
+            <div class="form-field">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" required placeholder="Your last name">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="company">Company / Organisation</label>
+            <input type="text" id="company" name="company" required placeholder="Hotel group, retailer, importer…">
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="your@company.com">
+            </div>
+            <div class="form-field">
+              <label for="country">Country</label>
+              <input type="text" id="country" name="country" placeholder="Country of destination">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="project-type">Project Type</label>
+            <select id="project-type" name="project-type">
+              <option value="">Select project type…</option>
+              <option>Hotel / Hospitality Contract</option>
+              <option>Retail / Distribution</option>
+              <option>OEM / Private Label</option>
+              <option>Export / Import</option>
+              <option>Custom Model Development</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="quantity">Estimated Quantity</label>
+            <input type="text" id="quantity" name="quantity" placeholder="e.g. 200 units, 50 rooms, full container">
+          </div>
+          <div class="form-field">
+            <label for="brief">Project Brief</label>
+            <textarea id="brief" name="brief" rows="5" placeholder="Describe your requirements: product type, dimensions, materials, timeline, and any other relevant details…"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Submit Enquiry</button>
+          <p style="font-size:12px;color:var(--outline);margin-top:12px;text-align:center;">We respond within one business day. No obligation.</p>
+        </form>
+        <div id="formSuccess" style="display:none;padding:32px;background:var(--surface-container);border:1px solid var(--surface-high);text-align:center;">
+          <div class="label-caps" style="color:var(--navy);margin-bottom:12px;">Enquiry Received</div>
+          <p style="font-size:15px;color:var(--text-muted);">Thank you. We'll respond within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <svg width="110" height="14" viewBox="0 0 177 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.7219 10.4681H4.56181C4.73723 17.8707 8.90776 18.5724H10.6444C12.4424 22.7824C8.4429 22.7824 4.33377 22.4316C2.95236 21.9404 0.676331 20.0064 0.000977 11.1084C1.00524 6.52564 8.42536 5.36351H14.5386C16.2358 5.36351 20.8273 7.24924 21.7219 10.4681Z" fill="#8A1002"/>
+            <path d="M99.8562 20.8303V2.95971C78.1396 1.22308 80.7753 1.00381C82.5733 5.50325H91.6029C98.8257 7.20479 99.8562 11.2613Z" fill="white"/>
+            <path d="M176.544 10.4681H159.384C161.007 18.5724 165.462 18.5724C167.26 20.844 167.26 22.7824Z" fill="white"/>
+          </svg>
+        </div>
+        <p>Precision-manufactured bed systems for export markets, hotel contracts, and retail partners worldwide.</p>
+        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;">A manufacturer, not a retailer</span>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Collections</div>
+        <ul>
+          <li><a href="collections.html?cat=bed-base">Bed Base Systems</a></li>
+          <li><a href="collections.html?cat=mattress">Mattresses</a></li>
+          <li><a href="collections.html?cat=topper">Toppers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Company</div>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="bespoke.html">Bespoke Manufacturing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Contact</div>
+        <ul>
+          <li><a href="mailto:export@elsehome.com">export@elsehome.com</a></li>
+          <li><a href="#contact">Request a Project</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Else Home. All rights reserved.</span>
+      <span>Engineered in Turkey. Exported worldwide.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+  // Fabric palette preview
+  const paletteEl = document.getElementById('fabricPalettePreview');
+  if (paletteEl) {
+    const sample = ['alabaster','linen','oyster','sand','camel','cognac','sage','slate','stone','mist','graphite','charcoal','midnight','onyx','anthracite','ivory','cream','taupe','storm','pewter','clay','ocean','forest','ebony','carbon','ecru','biscuit','navy-fabric'];
+    sample.slice(0, 24).forEach(id => {
+      const f = getFabric(id);
+      paletteEl.insertAdjacentHTML('beforeend',
+        `<div class="palette-swatch" style="background:${f.hex};" title="${f.name}"></div>`
+      );
+    });
+  }
+
+  // Form handler
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('enquiryForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = '';
+  }
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }});
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

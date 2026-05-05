@@ -1,0 +1,25 @@
+node_modules/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# Build and cache output
+dist/
+build/
+.cache/
+
+# Temporary assets
+temporary screenshots/
+
+# Editor files
+.vscode/
+.idea/
+CLAUDE.md
