@@ -22,5 +22,5 @@ temporary screenshots/
 # Editor files
 .vscode/
 .idea/
-.cladude/
+.claude/settings.local.json
 CLAUDE.md
