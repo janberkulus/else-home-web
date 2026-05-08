@@ -22,4 +22,5 @@ temporary screenshots/
 # Editor files
 .vscode/
 .idea/
+.cladude/
 CLAUDE.md
