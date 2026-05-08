@@ -42,9 +42,13 @@
   --r-lg:   8px;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
+  overflow-x: hidden;
   font-family: var(--font-body);
   background: var(--surface);
   color: var(--text);
@@ -243,6 +247,83 @@ button { cursor: pointer; font-family: inherit; }
 .nav-links a:focus-visible { outline: 2px solid var(--navy); outline-offset: 4px; border-radius: 2px; }
 
 .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+/* ─── HAMBURGER BUTTON ───────────────────────────────── */
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  z-index: 301;
+  position: relative;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--navy);
+  transition: transform 0.25s ease, opacity 0.15s ease;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ─── MOBILE NAV OVERLAY ────────────────────────────── */
+
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--navy);
+  z-index: 299;
+  flex-direction: column;
+  padding: 100px 32px 48px;
+  overflow-y: auto;
+}
+.mobile-nav-overlay.open { display: flex; }
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.mobile-nav-links li {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-nav-links a {
+  display: block;
+  font-family: var(--font-head);
+  font-size: clamp(28px, 7vw, 40px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  padding: 20px 0;
+  letter-spacing: -0.02em;
+  transition: color 0.15s;
+}
+.mobile-nav-links a:hover { color: white; }
+.mobile-nav-links a.active { color: white; }
+
+.mobile-nav-cta {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.mobile-nav-cta a {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
 
 
 /* ─── FOOTER ─────────────────────────────────────────── */
@@ -890,6 +971,8 @@ button { cursor: pointer; font-family: inherit; }
   }
 
   .nav-links { display: none; }
+  .nav-actions { display: none; }
+  .nav-hamburger { display: flex; }
 
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
