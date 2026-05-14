@@ -109,6 +109,10 @@
       margin-bottom: 40px;
       flex-wrap: wrap;
     }
+    @media (max-width: 640px) {
+      .product-actions { flex-direction: column; }
+      .product-actions .btn { width: 100%; justify-content: center; }
+    }
 
     /* Specs */
     .detail-section {
@@ -273,7 +277,7 @@
     <li><a href="about.html">About</a></li>
   </ul>
   <div class="mobile-nav-cta">
-    <a href="bespoke.html" class="btn btn-cta btn-lg">Start Custom Project</a>
+    <a href="bespoke.html" class="btn btn-on-dark btn-lg">Start Custom Project</a>
   </div>
 </div>
 
@@ -478,7 +482,7 @@
 
         <div class="product-actions">
           <a href="bespoke.html?model=${product.id}" class="btn btn-primary btn-lg">Request This Model</a>
-          <a href="bespoke.html?model=${product.id}&custom=1" class="btn btn-cta">Customise This Model</a>
+          <a href="bespoke.html?model=${product.id}&custom=1" class="btn btn-cta btn-lg">Customise This Model</a>
         </div>
 
         <!-- Features -->

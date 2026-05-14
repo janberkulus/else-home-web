@@ -178,6 +178,16 @@ button { cursor: pointer; font-family: inherit; }
 .btn-cta:active { background: #6b0d01; }
 .btn-cta:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
 
+/* White filled — primary CTA on dark/navy backgrounds */
+.btn-on-dark {
+  background: var(--white);
+  color: var(--navy);
+  border-color: var(--white);
+}
+.btn-on-dark:hover  { background: #f0edec; border-color: #f0edec; }
+.btn-on-dark:active { background: #e0dddc; border-color: #e0dddc; }
+.btn-on-dark:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+
 .btn-ghost-light {
   background: transparent;
   color: var(--white);
