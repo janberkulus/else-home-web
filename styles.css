@@ -296,14 +296,15 @@ button { cursor: pointer; font-family: inherit; }
   background: var(--navy);
   z-index: 299;
   flex-direction: column;
-  padding: 100px 32px 48px;
+  padding: 0 32px 48px;
   overflow-y: auto;
 }
 
 .mobile-nav-close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: static;
+  align-self: flex-end;
+  flex-shrink: 0;
+  margin: 14px 0 28px;
   width: 44px;
   height: 44px;
   display: flex;
@@ -985,7 +986,7 @@ button { cursor: pointer; font-family: inherit; }
 
   .nav-links { display: none; }
   .nav-actions { display: none; }
-  .nav-hamburger { display: flex; }
+  .nav-hamburger { display: flex; grid-column: 3; justify-self: end; }
 
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
