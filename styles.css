@@ -289,6 +289,25 @@ button { cursor: pointer; font-family: inherit; }
   padding: 100px 32px 48px;
   overflow-y: auto;
 }
+
+.mobile-nav-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+  transition: background 0.15s;
+}
+.mobile-nav-close:hover { background: rgba(255,255,255,0.2); }
+.mobile-nav-close svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; }
 .mobile-nav-overlay.open { display: flex; }
 
 .mobile-nav-links {
@@ -981,6 +1000,8 @@ button { cursor: pointer; font-family: inherit; }
     --section-gap:  60px;
     --grid-margin:  20px;
   }
+
+  .breadcrumb { display: none; }
 
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }

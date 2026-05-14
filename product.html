@@ -264,6 +264,9 @@
 </header>
 
 <div class="mobile-nav-overlay" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
   <ul class="mobile-nav-links">
     <li><a href="collections.html">Collections</a></li>
     <li><a href="bespoke.html">Bespoke</a></li>
@@ -683,19 +686,22 @@
   var btn = document.querySelector('.nav-hamburger');
   var overlay = document.getElementById('mobileNav');
   if (!btn || !overlay) return;
+  function closeMenu() {
+    overlay.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
   btn.addEventListener('click', function() {
     var open = overlay.classList.toggle('open');
     btn.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
     document.body.style.overflow = open ? 'hidden' : '';
   });
+  var closeBtn = document.getElementById('mobileNavClose');
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
   overlay.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      overlay.classList.remove('open');
-      btn.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+    a.addEventListener('click', closeMenu);
   });
 })();
 </script>
