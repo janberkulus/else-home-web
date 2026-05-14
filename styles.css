@@ -794,21 +794,6 @@ button { cursor: pointer; font-family: inherit; }
 .reveal-delay-4 { transition-delay: 0.32s; }
 
 
-/* ─── BREADCRUMB ─────────────────────────────────────── */
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-head);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--outline);
-  margin-bottom: 32px;
-}
-.breadcrumb a { color: var(--outline); transition: color 0.15s; }
-.breadcrumb a:hover { color: var(--navy); }
-.breadcrumb span { color: var(--outline-light); }
 
 
 /* ─── PAGE HEADER ────────────────────────────────────── */
@@ -1000,8 +985,6 @@ button { cursor: pointer; font-family: inherit; }
     --section-gap:  60px;
     --grid-margin:  20px;
   }
-
-  .breadcrumb { display: none; }
 
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }

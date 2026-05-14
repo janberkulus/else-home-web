@@ -278,18 +278,6 @@
 </div>
 
 
-<!-- Breadcrumb -->
-<div style="background:var(--white);border-bottom:1px solid var(--outline-light);padding:16px 0;">
-  <div class="container">
-    <div class="breadcrumb" id="breadcrumb">
-      <a href="index.html">Home</a>
-      <span>›</span>
-      <a href="collections.html">Collections</a>
-      <span>›</span>
-      <span id="bcProduct">Loading…</span>
-    </div>
-  </div>
-</div>
 
 
 <!-- ═══ PRODUCT DETAIL ════════════════════════════════════ -->
@@ -419,18 +407,8 @@
     // Update page title
     document.title = `${product.name} — Else Home`;
 
-    // Breadcrumb
-    const catLink = `collections.html?cat=${product.category}`;
+
     const catMap = { 'bed-base': 'Bed Base Systems', 'mattress': 'Mattresses', 'topper': 'Toppers' };
-    document.getElementById('breadcrumb').innerHTML = `
-      <a href="index.html">Home</a>
-      <span>›</span>
-      <a href="collections.html">Collections</a>
-      <span>›</span>
-      <a href="${catLink}">${catMap[product.category]}</a>
-      <span>›</span>
-      <span>${product.name}</span>
-    `;
 
     // Specs HTML
     const specsRows = Object.entries(product.specs).map(([k, v]) =>
