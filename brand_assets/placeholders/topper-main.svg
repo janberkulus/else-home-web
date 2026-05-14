@@ -1,0 +1,12 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F6F0EE"/>
+  <rect x="94" y="102" width="1012" height="696" rx="28" fill="#EFE8E4"/>
+  <rect x="180" y="576" width="840" height="62" rx="20" fill="#D9CDC6"/>
+  <rect x="220" y="488" width="760" height="62" rx="22" fill="#FFFDFC"/>
+  <rect x="260" y="450" width="680" height="34" rx="17" fill="#E8DEDA"/>
+  <path d="M220 522H980" stroke="#B7958D" stroke-width="4" stroke-dasharray="10 12"/>
+  <rect x="166" y="168" width="150" height="34" rx="17" fill="#8A1002" fill-opacity="0.1"/>
+  <text x="166" y="192" fill="#8A1002" fill-opacity="0.84" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="3">TOPPER</text>
+  <text x="166" y="760" fill="#03163D" fill-opacity="0.82" font-family="Arial, sans-serif" font-size="54" font-weight="700">Else Home Placeholder</text>
+  <text x="166" y="804" fill="#03163D" fill-opacity="0.6" font-family="Arial, sans-serif" font-size="28">Topper urunleri icin gorsel yer tutucu</text>
+</svg>

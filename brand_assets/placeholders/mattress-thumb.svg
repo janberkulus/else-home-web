@@ -1,0 +1,9 @@
+<svg width="600" height="450" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#F4F1EF"/>
+  <rect x="48" y="58" width="504" height="334" rx="22" fill="#ECE6E2"/>
+  <rect x="92" y="248" width="416" height="68" rx="18" fill="#D7D2CE"/>
+  <rect x="98" y="216" width="404" height="44" rx="14" fill="#F8F6F4"/>
+  <path d="M98 244H502" stroke="#C6C0BA" stroke-width="4" stroke-dasharray="7 8"/>
+  <text x="82" y="104" fill="#03163D" fill-opacity="0.75" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4">MATTRESS</text>
+  <text x="82" y="372" fill="#03163D" fill-opacity="0.82" font-family="Arial, sans-serif" font-size="28" font-weight="700">Else Home</text>
+</svg>

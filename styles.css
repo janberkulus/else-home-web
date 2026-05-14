@@ -985,4 +985,19 @@ button { cursor: pointer; font-family: inherit; }
 
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+  /* Process steps — tighter number column */
+  .step-item { grid-template-columns: 48px 1fr; gap: 14px; }
+  .step-num { font-size: 36px; }
+
+  /* Spec table — prevent overflow */
+  .spec-table { table-layout: fixed; width: 100%; }
+
+  /* Engineering features — single col */
+  .eng-features-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Prevent grid children from blowing out their containers */
+.container > *, [class*="-inner"] > *, [class*="-grid"] > * {
+  min-width: 0;
 }

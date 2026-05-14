@@ -261,6 +261,22 @@
   let currentCat = 'all';
   let currentSubcat = 'all';
 
+  function updateCategoryCounts() {
+    const counts = {
+      all: products.length,
+      'bed-base': products.filter(p => p.category === 'bed-base').length,
+      'mattress': products.filter(p => p.category === 'mattress').length,
+      'topper': products.filter(p => p.category === 'topper').length,
+    };
+
+    document.getElementById('catFilters').querySelectorAll('[data-cat]').forEach(btn => {
+      const badge = btn.querySelector('.filter-count');
+      if (badge && Object.prototype.hasOwnProperty.call(counts, btn.dataset.cat)) {
+        badge.textContent = counts[btn.dataset.cat];
+      }
+    });
+  }
+
   // Read URL param
   const urlCat = new URLSearchParams(window.location.search).get('cat');
   if (urlCat && catNames[urlCat]) currentCat = urlCat;
@@ -364,6 +380,7 @@
   });
 
   // Initial render
+  updateCategoryCounts();
   renderSubcatFilters(currentCat);
   applyFilters();
 

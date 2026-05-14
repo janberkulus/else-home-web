@@ -208,6 +208,12 @@
     .about-cta-actions { display: flex; flex-direction: column; gap: 16px; }
     .about-cta-actions a { align-self: flex-start; }
 
+    .about-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--outline-light);
+    }
     @media (max-width: 900px) {
       .about-hero-inner { grid-template-columns: 1fr; }
       .timeline-inner { grid-template-columns: 1fr; }
@@ -215,6 +221,11 @@
       .cap-inner { grid-template-columns: 1fr; }
       .cert-grid { grid-template-columns: repeat(2, 1fr); }
       .about-cta-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .cert-grid { grid-template-columns: 1fr; }
+      .about-stats-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -290,7 +301,7 @@
 <!-- ═══ STATS ═════════════════════════════════════════════ -->
 <section style="background:var(--surface-highest);padding:0;">
   <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--outline-light);">
+    <div class="about-stats-grid">
       <div style="padding:40px 32px;background:var(--surface-highest);">
         <span class="stat-number">15+</span>
         <span class="stat-label">Years Manufacturing</span>

@@ -1,0 +1,9 @@
+<svg width="600" height="450" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#F5EFED"/>
+  <rect x="48" y="58" width="504" height="334" rx="22" fill="#EEE6E3"/>
+  <rect x="82" y="275" width="436" height="45" rx="14" fill="#7C180E"/>
+  <rect x="110" y="193" width="380" height="92" rx="22" fill="#D5C4BE"/>
+  <rect x="140" y="152" width="320" height="58" rx="18" fill="#E9DBD3"/>
+  <text x="82" y="105" fill="#03163D" fill-opacity="0.75" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4">BED BASE</text>
+  <text x="82" y="373" fill="#03163D" fill-opacity="0.82" font-family="Arial, sans-serif" font-size="28" font-weight="700">Else Home</text>
+</svg>

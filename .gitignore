@@ -18,6 +18,7 @@ build/
 
 # Temporary assets
 temporary screenshots/
+CONTENT_PLATFORM_PLAN.md
 
 # Editor files
 .vscode/

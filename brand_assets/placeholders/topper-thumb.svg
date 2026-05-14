@@ -1,0 +1,9 @@
+<svg width="600" height="450" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#F6F0EE"/>
+  <rect x="48" y="58" width="504" height="334" rx="22" fill="#EFE8E4"/>
+  <rect x="100" y="266" width="400" height="36" rx="12" fill="#D9CDC6"/>
+  <rect x="122" y="220" width="356" height="34" rx="14" fill="#FFFDFC"/>
+  <rect x="140" y="198" width="320" height="16" rx="8" fill="#E8DEDA"/>
+  <text x="82" y="104" fill="#8A1002" fill-opacity="0.84" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2.4">TOPPER</text>
+  <text x="82" y="372" fill="#03163D" fill-opacity="0.82" font-family="Arial, sans-serif" font-size="28" font-weight="700">Else Home</text>
+</svg>

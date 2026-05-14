@@ -18,6 +18,7 @@
       align-items: start;
     }
     .product-image-stack { position: sticky; top: 100px; }
+    .product-gallery { position: relative; }
     .product-main-image {
       position: relative;
       background: var(--surface-container);
@@ -31,11 +32,40 @@
       background: linear-gradient(to bottom, transparent 65%, rgba(3,22,61,0.06));
       pointer-events: none;
     }
+
+    /* Gallery arrows */
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255,255,255,0.92);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(3,22,61,0.15);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s, background 0.15s;
+    }
+    .gallery-arrow.visible { opacity: 1; pointer-events: auto; }
+    .gallery-arrow:hover { background: white; }
+    .gallery-arrow svg { width: 16px; height: 16px; stroke: var(--navy); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .gallery-arrow-prev { left: 12px; }
+    .gallery-arrow-next { right: 12px; }
+
+    /* Thumbnail strip */
     .product-thumb-row {
       display: flex;
       gap: 8px;
       margin-top: 8px;
     }
+    .product-thumb-row.hidden { display: none; }
     .product-thumb {
       width: 72px;
       height: 60px;
@@ -43,9 +73,10 @@
       border: 1.5px solid transparent;
       cursor: pointer;
       transition: border-color 0.15s;
+      flex-shrink: 0;
     }
     .product-thumb.active { border-color: var(--navy); }
-    .product-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .product-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
     /* Product Info */
     .product-info {}
@@ -441,22 +472,17 @@
     // Render product layout
     document.getElementById('productLayout').innerHTML = `
       <div class="product-image-stack">
-        <div class="product-main-image">
-          <img src="${product.image}" alt="${product.name}" id="mainImage">
-        </div>
-        <div class="product-thumb-row">
-          <div class="product-thumb active">
-            <img src="${product.thumb}" alt="${product.name}">
+        <div class="product-gallery">
+          <div class="product-main-image">
+            <img src="${product.image}" alt="${product.name}" id="mainImage">
+            <button class="gallery-arrow gallery-arrow-prev" id="galleryPrev" aria-label="Previous image">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="gallery-arrow gallery-arrow-next" id="galleryNext" aria-label="Next image">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
           </div>
-          <div class="product-thumb">
-            <img src="https://placehold.co/144x120/e5e2e1/03163D?text=Detail" alt="Detail view">
-          </div>
-          <div class="product-thumb">
-            <img src="https://placehold.co/144x120/dcd9d9/03163D?text=Side" alt="Side view">
-          </div>
-          <div class="product-thumb">
-            <img src="https://placehold.co/144x120/f0edec/03163D?text=Base" alt="Base view">
-          </div>
+          <div class="product-thumb-row hidden" id="thumbRow"></div>
         </div>
       </div>
 
@@ -569,15 +595,86 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // Thumb click
-    document.querySelectorAll('.product-thumb').forEach(t => {
-      t.addEventListener('click', () => {
-        document.querySelectorAll('.product-thumb').forEach(x => x.classList.remove('active'));
-        t.classList.add('active');
-        const src = t.querySelector('img').src;
-        document.getElementById('mainImage').src = src;
+    // Dynamic gallery: probe for extra images, show arrows + thumbs only if found
+    (function() {
+      const mainImg  = document.getElementById('mainImage');
+      const thumbRow = document.getElementById('thumbRow');
+      const prevBtn  = document.getElementById('galleryPrev');
+      const nextBtn  = document.getElementById('galleryNext');
+
+      const folder   = product.imageFolder   || '';
+      const base     = product.imageBaseName || '';
+      const ext      = product.imageFile ? (product.imageFile.match(/\.[^.]+$/) || ['.jpg'])[0] : '.jpg';
+
+      const candidates = [
+        product.image,
+        folder + base + '_detail' + ext,
+        folder + base + '_side'   + ext,
+        folder + base + '_base'   + ext,
+      ];
+
+      let images  = [];
+      let current = 0;
+
+      function goTo(idx) {
+        current = ((idx % images.length) + images.length) % images.length;
+        mainImg.src = images[current];
+        thumbRow.querySelectorAll('.product-thumb').forEach(function(t, i) {
+          t.classList.toggle('active', i === current);
+        });
+      }
+
+      function buildGallery(urls) {
+        images = urls;
+        if (images.length <= 1) return;
+
+        thumbRow.classList.remove('hidden');
+        prevBtn.classList.add('visible');
+        nextBtn.classList.add('visible');
+
+        thumbRow.innerHTML = '';
+        images.forEach(function(url, i) {
+          const t = document.createElement('div');
+          t.className = 'product-thumb' + (i === 0 ? ' active' : '');
+          const img = document.createElement('img');
+          img.src = url; img.alt = '';
+          t.appendChild(img);
+          t.addEventListener('click', function() { goTo(i); });
+          thumbRow.appendChild(t);
+        });
+      }
+
+      prevBtn.addEventListener('click', function() { goTo(current - 1); });
+      nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+      document.addEventListener('keydown', function(e) {
+        if (images.length <= 1) return;
+        if (e.key === 'ArrowLeft')  goTo(current - 1);
+        if (e.key === 'ArrowRight') goTo(current + 1);
       });
-    });
+
+      // Mobile swipe
+      var touchStartX = 0;
+      var galleryEl = mainImg.closest('.product-gallery') || mainImg.parentElement;
+      galleryEl.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+      galleryEl.addEventListener('touchend', function(e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 48) goTo(current + (dx < 0 ? 1 : -1));
+      }, { passive: true });
+
+      // Probe all candidates — keep those that load successfully
+      var results = new Array(candidates.length).fill(null);
+      var pending = candidates.length;
+      candidates.forEach(function(url, i) {
+        var img = new Image();
+        img.onload  = function() { results[i] = url; done(); };
+        img.onerror = function() { done(); };
+        img.src = url;
+      });
+      function done() { if (--pending === 0) buildGallery(results.filter(Boolean)); }
+    })();
   }
 </script>
 
