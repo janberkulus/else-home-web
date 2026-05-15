@@ -404,13 +404,18 @@
     </a>
     <nav aria-label="Main">
       <ul class="nav-links">
-        <li><a href="collections.html">Collections</a></li>
-        <li><a href="bespoke.html">Bespoke</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="collections.html" data-i18n="nav.collections">Collections</a></li>
+        <li><a href="bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
       </ul>
     </nav>
     <div class="nav-actions">
-      <a href="bespoke.html" class="btn btn-primary btn-sm">Start Custom Project</a>
+      <div class="lang-toggle">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="tr">TR</button>
+      </div>
+      <a href="bespoke.html" class="btn btn-primary btn-sm" data-i18n="nav.cta">Start Custom Project</a>
     </div>
     <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span>
@@ -425,12 +430,17 @@
     <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
   <ul class="mobile-nav-links">
-    <li><a href="collections.html">Collections</a></li>
-    <li><a href="bespoke.html">Bespoke</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="collections.html" data-i18n="nav.collections">Collections</a></li>
+    <li><a href="bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+    <li><a href="about.html" data-i18n="nav.about">About</a></li>
   </ul>
+  <div class="lang-toggle" style="margin-bottom:24px;">
+    <button class="lang-btn" data-lang="en">EN</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" data-lang="tr">TR</button>
+  </div>
   <div class="mobile-nav-cta">
-    <a href="bespoke.html" class="btn btn-on-dark btn-lg">Start Custom Project</a>
+    <a href="bespoke.html" class="btn btn-on-dark btn-lg" data-i18n="nav.cta">Start Custom Project</a>
   </div>
 </div>
 
@@ -442,20 +452,20 @@
 
       <div class="hero-text-col reveal">
         <div class="hero-kicker">
-          <span class="label-caps">B2B Manufacturing  ·  Export Ready</span>
+          <span class="label-caps" data-i18n="index.heroKicker">B2B Manufacturing  ·  Export Ready</span>
         </div>
         <h1 class="hero-headline">
-          Precision<br>Manufactured.<br>
-          <em>Infinitely<br>Configurable.</em>
+          <span data-i18n="index.heroH1line1">Precision</span><br><span data-i18n="index.heroH1line2">Manufactured.</span><br>
+          <em><span data-i18n="index.heroH1line3">Infinitely</span><br><span data-i18n="index.heroH1line4">Configurable.</span></em>
         </h1>
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n="index.heroDesc">
           Custom bed bases, mattresses, and toppers engineered
           for export markets, hotel contracts, and retail partners
           worldwide. Every order built to your exact specification.
         </p>
         <div class="hero-actions">
-          <a href="collections.html" class="btn btn-primary btn-lg">Explore Collections</a>
-          <a href="bespoke.html" class="btn btn-outline btn-lg">Start Custom Project</a>
+          <a href="collections.html" class="btn btn-primary btn-lg" data-i18n="index.heroCta1">Explore Collections</a>
+          <a href="bespoke.html" class="btn btn-outline btn-lg" data-i18n="index.heroCta2">Start Custom Project</a>
         </div>
       </div>
 
@@ -466,8 +476,8 @@
           loading="eager"
         >
         <div class="hero-badge">
-          <div class="label-caps">Custom Manufacturing</div>
-          <p>Prototype to bulk production</p>
+          <div class="label-caps" data-i18n="index.heroBadge">Custom Manufacturing</div>
+          <p data-i18n="index.heroBadgeSub">Prototype to bulk production</p>
         </div>
       </div>
 
@@ -478,16 +488,16 @@
     <div class="container">
       <div class="metrics-inner">
         <div class="metric-item">
-          <span class="label-caps">40+ Fabric Options</span>
+          <span class="label-caps" data-i18n="index.metric1">40+ Fabric Options</span>
         </div>
         <div class="metric-item">
-          <span class="label-caps">Custom Dimensions</span>
+          <span class="label-caps" data-i18n="index.metric2">Custom Dimensions</span>
         </div>
         <div class="metric-item">
-          <span class="label-caps">B2B Manufacturing</span>
+          <span class="label-caps" data-i18n="index.metric3">B2B Manufacturing</span>
         </div>
         <div class="metric-item">
-          <span class="label-caps">Export Ready</span>
+          <span class="label-caps" data-i18n="index.metric4">Export Ready</span>
         </div>
       </div>
     </div>
@@ -499,8 +509,8 @@
 <section class="video-section">
   <div class="container">
     <div class="video-section-head reveal">
-      <div class="label-caps" style="color:rgba(255,255,255,0.4);margin-bottom:14px;">Company Overview</div>
-      <h2 class="h-lg" style="color:white;">See How We Build</h2>
+      <div class="label-caps" style="color:rgba(255,255,255,0.4);margin-bottom:14px;" data-i18n="index.videoLabel">Company Overview</div>
+      <h2 class="h-lg" style="color:white;" data-i18n="index.videoH2">See How We Build</h2>
     </div>
     <div class="video-wrap reveal reveal-delay-1">
       <div class="video-ratio">
@@ -524,9 +534,9 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label-row">
-        <span class="label-caps">Product Families</span>
+        <span class="label-caps" data-i18n="index.productsLabel">Product Families</span>
       </div>
-      <h2 class="h-lg">Three Core Systems,<br>Infinite Configurations</h2>
+      <h2 class="h-lg"><span data-i18n="index.productsH2a">Three Core Systems,</span><br><span data-i18n="index.productsH2b">Infinite Configurations</span></h2>
     </div>
 
     <div class="cat-grid" id="catGrid">
@@ -542,41 +552,41 @@
     <div class="cm-inner">
 
       <div class="cm-text reveal">
-        <div class="label-caps" style="color:rgba(255,255,255,0.4);margin-bottom:16px;">Custom Manufacturing</div>
-        <h2 class="cm-headline">Your Design.<br>Our Production.</h2>
-        <p class="cm-desc">
+        <div class="label-caps" style="color:rgba(255,255,255,0.4);margin-bottom:16px;" data-i18n="index.cmLabel">Custom Manufacturing</div>
+        <h2 class="cm-headline"><span data-i18n="index.cmH2a">Your Design.</span><br><span data-i18n="index.cmH2b">Our Production.</span></h2>
+        <p class="cm-desc" data-i18n="index.cmDesc">
           We don't sell from a fixed catalogue — we manufacture to your specification.
           From single-model prototypes to full-scale production runs, every order is
           engineered from the inside out. Your brief, our precision.
         </p>
         <ul class="cm-features">
-          <li>Custom dimensions and structural configurations</li>
-          <li>40+ fabric and material selections</li>
-          <li>Prototype development and client approval</li>
-          <li>OEM and private label manufacturing</li>
-          <li>Bulk production for hotels and retailers</li>
-          <li>Export packaging and logistics support</li>
+          <li data-i18n="index.cmFeat1">Custom dimensions and structural configurations</li>
+          <li data-i18n="index.cmFeat2">40+ fabric and material selections</li>
+          <li data-i18n="index.cmFeat3">Prototype development and client approval</li>
+          <li data-i18n="index.cmFeat4">OEM and private label manufacturing</li>
+          <li data-i18n="index.cmFeat5">Bulk production for hotels and retailers</li>
+          <li data-i18n="index.cmFeat6">Export packaging and logistics support</li>
         </ul>
-        <a href="bespoke.html" class="btn btn-on-dark btn-lg">Start Custom Project</a>
+        <a href="bespoke.html" class="btn btn-on-dark btn-lg" data-i18n="index.cmCta">Start Custom Project</a>
       </div>
 
       <div class="cm-visual reveal reveal-delay-2">
         <div class="cm-visual-grid">
           <div class="cm-grid-item">
-            <div class="label-caps" style="color:rgba(255,255,255,0.35);">Customisation</div>
-            <p>Fabric, dimension, and structural configuration to your exact brief</p>
+            <div class="label-caps" style="color:rgba(255,255,255,0.35);" data-i18n="index.cmGrid1Title">Customisation</div>
+            <p data-i18n="index.cmGrid1Desc">Fabric, dimension, and structural configuration to your exact brief</p>
           </div>
           <div class="cm-grid-item">
-            <div class="label-caps" style="color:rgba(255,255,255,0.35);">Prototyping</div>
-            <p>Sample production and client sign-off before bulk run commences</p>
+            <div class="label-caps" style="color:rgba(255,255,255,0.35);" data-i18n="index.cmGrid2Title">Prototyping</div>
+            <p data-i18n="index.cmGrid2Desc">Sample production and client sign-off before bulk run commences</p>
           </div>
           <div class="cm-grid-item">
-            <div class="label-caps" style="color:rgba(255,255,255,0.35);">Bulk Production</div>
-            <p>High-volume manufacturing for hotel groups and retail partners</p>
+            <div class="label-caps" style="color:rgba(255,255,255,0.35);" data-i18n="index.cmGrid3Title">Bulk Production</div>
+            <p data-i18n="index.cmGrid3Desc">High-volume manufacturing for hotel groups and retail partners</p>
           </div>
           <div class="cm-grid-item">
-            <div class="label-caps" style="color:rgba(255,255,255,0.35);">Export</div>
-            <p>International logistics, export documentation, and compliance</p>
+            <div class="label-caps" style="color:rgba(255,255,255,0.35);" data-i18n="index.cmGrid4Title">Export</div>
+            <p data-i18n="index.cmGrid4Desc">International logistics, export documentation, and compliance</p>
           </div>
         </div>
       </div>
@@ -600,22 +610,22 @@
           <div class="eng-callout" style="top:18%;left:8%;">
             <div class="eng-callout-dot"></div>
             <div class="eng-callout-label">
-              <div class="label-caps">Hardwood Frame</div>
-              <p>Kiln-dried structural timber</p>
+              <div class="label-caps" data-i18n="index.calloutFrame">Hardwood Frame</div>
+              <p data-i18n="index.calloutFrameDesc">Kiln-dried structural timber</p>
             </div>
           </div>
           <div class="eng-callout" style="top:42%;right:6%;">
             <div class="eng-callout-dot"></div>
             <div class="eng-callout-label">
-              <div class="label-caps">Pocket Spring Layer</div>
-              <p>Individually nested, 1.2 mm steel</p>
+              <div class="label-caps" data-i18n="index.calloutSpring">Pocket Spring Layer</div>
+              <p data-i18n="index.calloutSpringDesc">Individually nested, 1.2 mm steel</p>
             </div>
           </div>
           <div class="eng-callout" style="bottom:20%;left:12%;">
             <div class="eng-callout-dot"></div>
             <div class="eng-callout-label">
-              <div class="label-caps">HR Foam Core</div>
-              <p>High-resilience 35 kg/m³</p>
+              <div class="label-caps" data-i18n="index.calloutFoam">HR Foam Core</div>
+              <p data-i18n="index.calloutFoamDesc">High-resilience 35 kg/m³</p>
             </div>
           </div>
         </div>
@@ -623,10 +633,10 @@
 
       <div class="reveal reveal-delay-1">
         <div class="section-label-row" style="margin-bottom:16px;">
-          <span class="label-caps">Engineering Standard</span>
+          <span class="label-caps" data-i18n="index.engLabel">Engineering Standard</span>
         </div>
-        <h2 class="h-lg" style="margin-bottom:20px;">Built From<br>the Inside Out</h2>
-        <p class="body-lg" style="margin-bottom:32px;">
+        <h2 class="h-lg" style="margin-bottom:20px;"><span data-i18n="index.engH2a">Built From</span><br><span data-i18n="index.engH2b">the Inside Out</span></h2>
+        <p class="body-lg" style="margin-bottom:32px;" data-i18n="index.engDesc">
           Every Else Home product is engineered at the component level.
           From kiln-dried hardwood frames to precision-nested pocket springs,
           quality is built in — not added on.
@@ -634,28 +644,28 @@
 
         <div class="eng-features-grid">
           <div class="eng-feat-item">
-            <div class="eng-feat-label">Frame</div>
-            <div class="eng-feat-val">Kiln-dried hardwood</div>
+            <div class="eng-feat-label" data-i18n="index.engFrame">Frame</div>
+            <div class="eng-feat-val" data-i18n="index.engFrameVal">Kiln-dried hardwood</div>
           </div>
           <div class="eng-feat-item">
-            <div class="eng-feat-label">Springs</div>
-            <div class="eng-feat-val">Tempered steel, nested</div>
+            <div class="eng-feat-label" data-i18n="index.engSprings">Springs</div>
+            <div class="eng-feat-val" data-i18n="index.engSpringsVal">Tempered steel, nested</div>
           </div>
           <div class="eng-feat-item">
-            <div class="eng-feat-label">Upholstery</div>
-            <div class="eng-feat-val">40+ certified fabrics</div>
+            <div class="eng-feat-label" data-i18n="index.engUpholstery">Upholstery</div>
+            <div class="eng-feat-val" data-i18n="index.engUphVal">40+ certified fabrics</div>
           </div>
           <div class="eng-feat-item">
-            <div class="eng-feat-label">Hardware</div>
-            <div class="eng-feat-val">Grade A fixings</div>
+            <div class="eng-feat-label" data-i18n="index.engHardware">Hardware</div>
+            <div class="eng-feat-val" data-i18n="index.engHardVal">Grade A fixings</div>
           </div>
           <div class="eng-feat-item">
-            <div class="eng-feat-label">Testing</div>
-            <div class="eng-feat-val">EN 1725 compliant</div>
+            <div class="eng-feat-label" data-i18n="index.engTesting">Testing</div>
+            <div class="eng-feat-val" data-i18n="index.engTestVal">EN 1725 compliant</div>
           </div>
           <div class="eng-feat-item">
-            <div class="eng-feat-label">Lead Time</div>
-            <div class="eng-feat-val">From 4 weeks</div>
+            <div class="eng-feat-label" data-i18n="index.engLeadTime">Lead Time</div>
+            <div class="eng-feat-val" data-i18n="index.engLeadVal">From 4 weeks</div>
           </div>
         </div>
       </div>
@@ -671,19 +681,19 @@
     <div class="stats-grid reveal">
       <div class="stat-cell">
         <span class="stat-number">40+</span>
-        <span class="stat-label">Export Markets</span>
+        <span class="stat-label" data-i18n="index.stat1">Export Markets</span>
       </div>
       <div class="stat-cell">
         <span class="stat-number">200K+</span>
-        <span class="stat-label">Units Per Year</span>
+        <span class="stat-label" data-i18n="index.stat2">Units Per Year</span>
       </div>
       <div class="stat-cell">
         <span class="stat-number">15+</span>
-        <span class="stat-label">Years Manufacturing</span>
+        <span class="stat-label" data-i18n="index.stat3">Years Manufacturing</span>
       </div>
       <div class="stat-cell">
         <span class="stat-number">500+</span>
-        <span class="stat-label">Global Partners</span>
+        <span class="stat-label" data-i18n="index.stat4">Global Partners</span>
       </div>
     </div>
   </div>
@@ -695,9 +705,9 @@
   <div class="container">
     <div class="section-head reveal">
       <div class="section-label-row">
-        <span class="label-caps">Who We Work With</span>
+        <span class="label-caps" data-i18n="index.partnersLabel">Who We Work With</span>
       </div>
-      <h2 class="h-md">Built for Partnership</h2>
+      <h2 class="h-md" data-i18n="index.partnersH2">Built for Partnership</h2>
     </div>
 
     <div class="partner-types">
@@ -708,8 +718,8 @@
             <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
           </svg>
         </div>
-        <div class="partner-title">Hotel Groups & Hospitality</div>
-        <p class="partner-desc">Custom specifications, matched branding, and bulk production for full hotel openings. Single point of contact for procurement teams.</p>
+        <div class="partner-title" data-i18n="index.partner1Title">Hotel Groups & Hospitality</div>
+        <p class="partner-desc" data-i18n="index.partner1Desc">Custom specifications, matched branding, and bulk production for full hotel openings. Single point of contact for procurement teams.</p>
       </div>
       <div class="partner-card reveal reveal-delay-2">
         <div class="partner-icon">
@@ -717,8 +727,8 @@
             <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9,22 9,12 15,12 15,22"/>
           </svg>
         </div>
-        <div class="partner-title">Retailers & Distributors</div>
-        <p class="partner-desc">OEM and private label production. Your brand, our manufacturing. Retail-ready packaging and drop-ship fulfilment available.</p>
+        <div class="partner-title" data-i18n="index.partner2Title">Retailers & Distributors</div>
+        <p class="partner-desc" data-i18n="index.partner2Desc">OEM and private label production. Your brand, our manufacturing. Retail-ready packaging and drop-ship fulfilment available.</p>
       </div>
       <div class="partner-card reveal reveal-delay-3">
         <div class="partner-icon">
@@ -727,8 +737,8 @@
             <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/>
           </svg>
         </div>
-        <div class="partner-title">Import & Export Partners</div>
-        <p class="partner-desc">Full export documentation, container loading, and international logistics. Compliant with EU, UK, and GCC regulations.</p>
+        <div class="partner-title" data-i18n="index.partner3Title">Import & Export Partners</div>
+        <p class="partner-desc" data-i18n="index.partner3Desc">Full export documentation, container loading, and international logistics. Compliant with EU, UK, and GCC regulations.</p>
       </div>
     </div>
   </div>
@@ -755,42 +765,42 @@
         <path d="M176.544 14.3624C176.544 14.8579 176.421 15.3184 176.171 15.7438C175.882 16.2262 175.509 16.4674 175.053 16.4674H159.384C159.559 17.8707 161.007 18.5724 163.726 18.5724H165.462C166.664 18.5724 167.26 19.331 167.26 20.844C167.26 22.1377 166.659 22.7824 165.462 22.7824C163.261 22.7824 161.77 22.7385 160.994 22.6464C159.152 22.4315 157.77 21.9403 156.849 21.1641C155.494 20.0064 154.819 18.6381 154.819 17.055V11.1084C154.819 9.07793 155.823 7.54741 157.827 6.52561C159.349 5.74939 161.151 5.36347 163.243 5.36347H169.357C171.054 5.36347 172.553 5.688 173.856 6.34142C175.645 7.24921 176.54 8.62622 176.54 10.4681V14.358L176.544 14.3624ZM172.198 12.1214V10.7575C172.198 10.319 171.786 10.0208 170.957 9.86291C170.637 9.8059 169.747 9.72697 168.286 9.6261H163.616C162.261 9.6261 161.419 9.64803 161.086 9.69188C159.866 9.84976 159.257 10.2488 159.257 10.8891V12.117H172.194L172.198 12.1214Z" fill="white"/>
       </svg>
         </div>
-        <p>Precision-manufactured bed systems for export markets, hotel contracts, and retail partners worldwide. Based in Turkey, built for the world.</p>
-        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;">A manufacturer, not a retailer</span>
+        <p data-i18n="footer.tagline">Precision-manufactured bed systems for export markets, hotel contracts, and retail partners worldwide. Based in Turkey, built for the world.</p>
+        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;" data-i18n="footer.mfgNote">A manufacturer, not a retailer</span>
       </div>
 
       <div class="footer-col">
-        <div class="footer-col-head">Collections</div>
+        <div class="footer-col-head" data-i18n="footer.colCollections">Collections</div>
         <ul>
-          <li><a href="collections.html?cat=bed-base">Bed Base Systems</a></li>
-          <li><a href="collections.html?cat=mattress">Mattresses</a></li>
-          <li><a href="collections.html?cat=topper">Toppers</a></li>
-          <li><a href="collections.html">All Products</a></li>
+          <li><a href="collections.html?cat=bed-base" data-i18n="footer.bedBase">Bed Base Systems</a></li>
+          <li><a href="collections.html?cat=mattress" data-i18n="footer.mattresses">Mattresses</a></li>
+          <li><a href="collections.html?cat=topper" data-i18n="footer.toppers">Toppers</a></li>
+          <li><a href="collections.html" data-i18n="footer.allProducts">All Products</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <div class="footer-col-head">Company</div>
+        <div class="footer-col-head" data-i18n="footer.colCompany">Company</div>
         <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="bespoke.html">Bespoke Manufacturing</a></li>
-          <li><a href="bespoke.html#contact">B2B Enquiries</a></li>
+          <li><a href="about.html" data-i18n="footer.aboutUs">About Us</a></li>
+          <li><a href="bespoke.html" data-i18n="footer.bespokeMfg">Bespoke Manufacturing</a></li>
+          <li><a href="bespoke.html#contact" data-i18n="footer.b2bEnquiries">B2B Enquiries</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <div class="footer-col-head">Contact</div>
+        <div class="footer-col-head" data-i18n="footer.colContact">Contact</div>
         <ul>
           <li><a href="mailto:export@elsehome.com">export@elsehome.com</a></li>
           <li><a href="mailto:info@elsehome.com">info@elsehome.com</a></li>
-          <li><a href="bespoke.html#contact">Request a Project</a></li>
+          <li><a href="bespoke.html#contact" data-i18n="footer.requestProj">Request a Project</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© 2024 Else Home. All rights reserved.</span>
-      <span>Engineered in Turkey. Exported worldwide.</span>
+      <span data-i18n="footer.copy">© 2024 Else Home. All rights reserved.</span>
+      <span data-i18n="footer.sub">Engineered in Turkey. Exported worldwide.</span>
     </div>
   </div>
 </footer>
@@ -799,19 +809,27 @@
 <script src="data.js"></script>
 <script>
   // ── Category Cards ──────────────────────────────────────
-  const grid = document.getElementById('catGrid');
-  if (grid) {
+  function renderCatGrid() {
+    var lang = window.ElseLang ? window.ElseLang.current() : 'en';
+    var t = window.ElseTranslations && window.ElseTranslations[lang] && window.ElseTranslations[lang].index;
+    var catLink = t ? t.catLink : 'Explore Collection';
+    var catModels = t ? t.catModels : 'Models';
+    const grid = document.getElementById('catGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
     categories.forEach(cat => {
+      var name = (lang === 'tr' && cat.name_tr) ? cat.name_tr : cat.name;
+      var desc = (lang === 'tr' && cat.description_tr) ? cat.description_tr : cat.description;
       grid.insertAdjacentHTML('beforeend', `
         <a href="collections.html?cat=${cat.id}" class="cat-card reveal">
           <div class="cat-card-image">
-            <img src="${cat.image}" alt="${cat.name}" loading="lazy">
+            <img src="${cat.image}" alt="${name}" loading="lazy">
           </div>
           <div class="cat-card-body">
-            <div class="cat-count">${cat.count} Models</div>
-            <div class="cat-name">${cat.name}</div>
-            <p class="cat-desc">${cat.description}</p>
-            <span class="cat-link">Explore Collection
+            <div class="cat-count">${cat.count} ${catModels}</div>
+            <div class="cat-name">${name}</div>
+            <p class="cat-desc">${desc}</p>
+            <span class="cat-link">${catLink}
               <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
                 <path d="M1 5h12M9 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -820,7 +838,9 @@
         </a>
       `);
     });
+    document.querySelectorAll('#catGrid .reveal').forEach(el => io && io.observe(el));
   }
+  window.__rerenderCatGrid = renderCatGrid;
 
   // ── Scroll Reveal ────────────────────────────────────────
   const io = new IntersectionObserver((entries) => {
@@ -833,6 +853,7 @@
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  renderCatGrid();
 </script>
 
 <script>
@@ -860,6 +881,7 @@
 })();
 </script>
 
+<script src="translations.js"></script>
 <script>
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);

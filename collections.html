@@ -83,13 +83,18 @@
     </a>
     <nav aria-label="Main">
       <ul class="nav-links">
-        <li><a href="collections.html" class="active">Collections</a></li>
-        <li><a href="bespoke.html">Bespoke</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="collections.html" class="active" data-i18n="nav.collections">Collections</a></li>
+        <li><a href="bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+        <li><a href="about.html" data-i18n="nav.about">About</a></li>
       </ul>
     </nav>
     <div class="nav-actions">
-      <a href="bespoke.html" class="btn btn-primary btn-sm">Start Custom Project</a>
+      <div class="lang-toggle">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="tr">TR</button>
+      </div>
+      <a href="bespoke.html" class="btn btn-primary btn-sm" data-i18n="nav.cta">Start Custom Project</a>
     </div>
     <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span>
@@ -104,12 +109,17 @@
     <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
   <ul class="mobile-nav-links">
-    <li><a href="collections.html" class="active">Collections</a></li>
-    <li><a href="bespoke.html">Bespoke</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a href="collections.html" class="active" data-i18n="nav.collections">Collections</a></li>
+    <li><a href="bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+    <li><a href="about.html" data-i18n="nav.about">About</a></li>
   </ul>
+  <div class="lang-toggle" style="margin-bottom:24px;">
+    <button class="lang-btn" data-lang="en">EN</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" data-lang="tr">TR</button>
+  </div>
   <div class="mobile-nav-cta">
-    <a href="bespoke.html" class="btn btn-on-dark btn-lg">Start Custom Project</a>
+    <a href="bespoke.html" class="btn btn-on-dark btn-lg" data-i18n="nav.cta">Start Custom Project</a>
   </div>
 </div>
 
@@ -137,29 +147,29 @@
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-section">
-        <span class="filter-label">Category</span>
+        <span class="filter-label" data-i18n="collections.filterCat">Category</span>
         <ul class="filter-list" id="catFilters">
           <li>
             <button class="filter-btn active" data-cat="all">
-              All Products
+              <span data-i18n="collections.allProducts">All Products</span>
               <span class="filter-count">28</span>
             </button>
           </li>
           <li>
             <button class="filter-btn" data-cat="bed-base">
-              Bed Base Systems
+              <span data-i18n="collections.bedBase">Bed Base Systems</span>
               <span class="filter-count">19</span>
             </button>
           </li>
           <li>
             <button class="filter-btn" data-cat="mattress">
-              Mattresses
+              <span data-i18n="collections.mattresses">Mattresses</span>
               <span class="filter-count">6</span>
             </button>
           </li>
           <li>
             <button class="filter-btn" data-cat="topper">
-              Toppers
+              <span data-i18n="collections.toppers">Toppers</span>
               <span class="filter-count">3</span>
             </button>
           </li>
@@ -172,11 +182,11 @@
       </div>
 
       <div style="padding: 20px; background: var(--surface-container); border-radius: var(--r); margin-top: 16px;">
-        <div class="label-caps" style="margin-bottom:10px;">Custom Manufacturing</div>
-        <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;">
+        <div class="label-caps" style="margin-bottom:10px;" data-i18n="collections.customMfgTitle">Custom Manufacturing</div>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:14px;" data-i18n="collections.customMfgDesc">
           Don't see what you need? We manufacture to specification.
         </p>
-        <a href="bespoke.html" class="btn btn-cta btn-sm" style="width:100%;justify-content:center;">Start Custom Project</a>
+        <a href="bespoke.html" class="btn btn-cta btn-sm" style="width:100%;justify-content:center;" data-i18n="collections.customMfgCta">Start Custom Project</a>
       </div>
     </aside>
 
@@ -212,36 +222,36 @@
         <path d="M176.544 14.3624C176.544 14.8579 176.421 15.3184 176.171 15.7438C175.882 16.2262 175.509 16.4674 175.053 16.4674H159.384C159.559 17.8707 161.007 18.5724 163.726 18.5724H165.462C166.664 18.5724 167.26 19.331 167.26 20.844C167.26 22.1377 166.659 22.7824 165.462 22.7824C163.261 22.7824 161.77 22.7385 160.994 22.6464C159.152 22.4315 157.77 21.9403 156.849 21.1641C155.494 20.0064 154.819 18.6381 154.819 17.055V11.1084C154.819 9.07793 155.823 7.54741 157.827 6.52561C159.349 5.74939 161.151 5.36347 163.243 5.36347H169.357C171.054 5.36347 172.553 5.688 173.856 6.34142C175.645 7.24921 176.54 8.62622 176.54 10.4681V14.358L176.544 14.3624ZM172.198 12.1214V10.7575C172.198 10.319 171.786 10.0208 170.957 9.86291C170.637 9.8059 169.747 9.72697 168.286 9.6261H163.616C162.261 9.6261 161.419 9.64803 161.086 9.69188C159.866 9.84976 159.257 10.2488 159.257 10.8891V12.117H172.194L172.198 12.1214Z" fill="white"/>
       </svg>
         </div>
-        <p>Precision-manufactured bed systems for export markets, hotel contracts, and retail partners worldwide.</p>
-        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;">A manufacturer, not a retailer</span>
+        <p data-i18n="footer.tagline">Precision-manufactured bed systems for export markets, hotel contracts, and retail partners worldwide.</p>
+        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;" data-i18n="footer.mfgNote">A manufacturer, not a retailer</span>
       </div>
       <div class="footer-col">
-        <div class="footer-col-head">Collections</div>
+        <div class="footer-col-head" data-i18n="footer.colCollections">Collections</div>
         <ul>
-          <li><a href="collections.html?cat=bed-base">Bed Base Systems</a></li>
-          <li><a href="collections.html?cat=mattress">Mattresses</a></li>
-          <li><a href="collections.html?cat=topper">Toppers</a></li>
+          <li><a href="collections.html?cat=bed-base" data-i18n="footer.bedBase">Bed Base Systems</a></li>
+          <li><a href="collections.html?cat=mattress" data-i18n="footer.mattresses">Mattresses</a></li>
+          <li><a href="collections.html?cat=topper" data-i18n="footer.toppers">Toppers</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-head">Company</div>
+        <div class="footer-col-head" data-i18n="footer.colCompany">Company</div>
         <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="bespoke.html">Bespoke Manufacturing</a></li>
-          <li><a href="bespoke.html#contact">B2B Enquiries</a></li>
+          <li><a href="about.html" data-i18n="footer.aboutUs">About Us</a></li>
+          <li><a href="bespoke.html" data-i18n="footer.bespokeMfg">Bespoke Manufacturing</a></li>
+          <li><a href="bespoke.html#contact" data-i18n="footer.b2bEnquiries">B2B Enquiries</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-head">Contact</div>
+        <div class="footer-col-head" data-i18n="footer.colContact">Contact</div>
         <ul>
           <li><a href="mailto:export@elsehome.com">export@elsehome.com</a></li>
-          <li><a href="bespoke.html#contact">Request a Project</a></li>
+          <li><a href="bespoke.html#contact" data-i18n="footer.requestProj">Request a Project</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 Else Home. All rights reserved.</span>
-      <span>Engineered in Turkey. Exported worldwide.</span>
+      <span data-i18n="footer.copy">© 2024 Else Home. All rights reserved.</span>
+      <span data-i18n="footer.sub">Engineered in Turkey. Exported worldwide.</span>
     </div>
   </div>
 </footer>
@@ -249,12 +259,21 @@
 
 <script src="data.js"></script>
 <script>
-  const catNames = {
-    'bed-base': 'Bed Base Systems',
-    'mattress': 'Mattresses',
-    'topper': 'Toppers',
-    'all': 'All Products',
-  };
+  function getLang() { return window.ElseLang ? window.ElseLang.current() : 'en'; }
+  function getT(key) {
+    var lang = getLang();
+    var t = window.ElseTranslations && window.ElseTranslations[lang] && window.ElseTranslations[lang].collections;
+    if (!t) return key;
+    return t[key] || key;
+  }
+  function getCatNames() {
+    return {
+      'bed-base': getT('bedBase'),
+      'mattress': getT('mattresses'),
+      'topper': getT('toppers'),
+      'all': getT('allProducts'),
+    };
+  }
 
   let currentCat = 'all';
   let currentSubcat = 'all';
@@ -266,7 +285,6 @@
       'mattress': products.filter(p => p.category === 'mattress').length,
       'topper': products.filter(p => p.category === 'topper').length,
     };
-
     document.getElementById('catFilters').querySelectorAll('[data-cat]').forEach(btn => {
       const badge = btn.querySelector('.filter-count');
       if (badge && Object.prototype.hasOwnProperty.call(counts, btn.dataset.cat)) {
@@ -277,23 +295,28 @@
 
   // Read URL param
   const urlCat = new URLSearchParams(window.location.search).get('cat');
-  if (urlCat && catNames[urlCat]) currentCat = urlCat;
+  if (urlCat && ['bed-base','mattress','topper'].includes(urlCat)) currentCat = urlCat;
 
   function renderCards(list) {
+    var lang = getLang();
+    var viewDetails = getT('viewDetails');
+    var productCount = getT('productCount');
     const grid = document.getElementById('productsGrid');
     grid.innerHTML = '';
     list.forEach(p => {
+      var subcat = (lang === 'tr' && p.subcategory_tr) ? p.subcategory_tr : p.subcategory;
+      var shortDesc = (lang === 'tr' && p.shortDesc_tr) ? p.shortDesc_tr : p.shortDesc;
       grid.insertAdjacentHTML('beforeend', `
         <a href="product.html?id=${p.id}" class="product-card reveal">
           <div class="product-card-image">
             <img src="${p.thumb}" alt="${p.name}" loading="lazy">
           </div>
           <div class="product-card-body">
-            <div class="product-card-cat">${p.subcategory}</div>
+            <div class="product-card-cat">${subcat}</div>
             <div class="product-card-name">${p.name}</div>
-            <p class="product-card-desc">${p.shortDesc}</p>
+            <p class="product-card-desc">${shortDesc}</p>
             <span class="product-card-cta">
-              View Details
+              ${viewDetails}
               <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
                 <path d="M1 4h10M7 1l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -303,10 +326,10 @@
       `);
     });
 
-    document.getElementById('visibleCount').textContent = `${list.length} product${list.length !== 1 ? 's' : ''}`;
-    document.getElementById('productCount').textContent = `${list.length} product${list.length !== 1 ? 's' : ''}`;
+    var countStr = list.length + ' ' + productCount;
+    document.getElementById('visibleCount').textContent = countStr;
+    document.getElementById('productCount').textContent = countStr;
 
-    // Trigger reveals
     setTimeout(() => {
       document.querySelectorAll('.product-card.reveal').forEach((el, i) => {
         setTimeout(() => el.classList.add('visible'), i * 40);
@@ -320,6 +343,7 @@
   }
 
   function renderSubcatFilters(cat) {
+    var lang = getLang();
     const section = document.getElementById('subcatSection');
     const subcatList = document.getElementById('subcatFilters');
     const subcats = getSubcats(cat);
@@ -327,13 +351,19 @@
       section.style.display = 'none';
       return;
     }
+    var catNames = getCatNames();
     section.style.display = '';
-    document.getElementById('subcatLabel').textContent = catNames[cat] ? catNames[cat].replace('Systems','').trim() + ' Type' : 'Type';
+    var typeLabel = getT('typeLabel') || 'Type';
+    document.getElementById('subcatLabel').textContent = typeLabel;
+    var allLabel = getT('allType') || 'All';
     subcatList.innerHTML = `
-      <li><button class="filter-btn active" data-subcat="all">All <span class="filter-count">${subcats.reduce((a,s) => a + products.filter(p=>p.category===cat&&p.subcategory===s).length, 0)}</span></button></li>
+      <li><button class="filter-btn active" data-subcat="all">${allLabel} <span class="filter-count">${subcats.reduce((a,s) => a + products.filter(p=>p.category===cat&&p.subcategory===s).length, 0)}</span></button></li>
       ${subcats.map(s => {
         const count = products.filter(p => p.category === cat && p.subcategory === s).length;
-        return `<li><button class="filter-btn" data-subcat="${s}">${s} <span class="filter-count">${count}</span></button></li>`;
+        // find TR subcategory name from a product
+        var p = products.find(pr => pr.category === cat && pr.subcategory === s);
+        var label = (lang === 'tr' && p && p.subcategory_tr) ? p.subcategory_tr : s;
+        return `<li><button class="filter-btn" data-subcat="${s}">${label} <span class="filter-count">${count}</span></button></li>`;
       }).join('')}
     `;
     subcatList.querySelectorAll('[data-subcat]').forEach(btn => {
@@ -347,17 +377,26 @@
   }
 
   function applyFilters() {
+    var lang = getLang();
+    var catNames = getCatNames();
     let list = currentCat === 'all' ? products : products.filter(p => p.category === currentCat);
     if (currentSubcat !== 'all') list = list.filter(p => p.subcategory === currentSubcat);
 
-    const cat = catNames[currentCat] || 'All Products';
-    document.getElementById('activeCatTitle').textContent = currentSubcat !== 'all' ? currentSubcat : cat;
+    const cat = catNames[currentCat] || getT('allProducts');
+    // For activeCatTitle, if subcategory is active use its TR name
+    var activeTitleText = cat;
+    if (currentSubcat !== 'all') {
+      var sp = list[0] || products.find(p => p.subcategory === currentSubcat);
+      activeTitleText = (lang === 'tr' && sp && sp.subcategory_tr) ? sp.subcategory_tr : currentSubcat;
+    }
+    document.getElementById('activeCatTitle').textContent = activeTitleText;
     document.getElementById('pageTitle').textContent = cat;
 
-    const catDesc = categories.find(c => c.id === currentCat);
-    document.getElementById('pageDesc').textContent = catDesc
-      ? catDesc.description
-      : '28 models across bed base systems, mattresses, and toppers — all available in custom configurations.';
+    const catData = categories.find(c => c.id === currentCat);
+    var defaultDesc = getT('pageDesc') || '28 models across bed base systems, mattresses, and toppers — all available in custom configurations.';
+    document.getElementById('pageDesc').textContent = catData
+      ? ((lang === 'tr' && catData.description_tr) ? catData.description_tr : catData.description)
+      : defaultDesc;
 
     renderCards(list);
   }
@@ -382,11 +421,13 @@
   renderSubcatFilters(currentCat);
   applyFilters();
 
-  // Update active category button from URL
-  document.getElementById('catFilters').querySelectorAll('[data-cat]').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.cat === currentCat);
-  });
+  // Re-render hook for language change
+  window.__rerenderCollections = function(lang) {
+    renderSubcatFilters(currentCat);
+    applyFilters();
+  };
 </script>
+<script src="translations.js"></script>
 
 <script>
 (function(){

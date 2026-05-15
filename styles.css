@@ -1015,3 +1015,20 @@ button { cursor: pointer; font-family: inherit; }
 .container > *, [class*="-inner"] > *, [class*="-grid"] > * {
   min-width: 0;
 }
+
+/* ── LANG TOGGLE ─────────────────────────────────────────── */
+.lang-toggle { display: flex; align-items: center; gap: 6px; }
+.lang-sep { color: rgba(3,22,61,0.25); font-size: 12px; line-height: 1; }
+.lang-btn {
+  background: none; border: none; cursor: pointer;
+  font-family: var(--font-head); font-size: 13px; font-weight: 500;
+  color: rgba(3,22,61,0.4); padding: 0; letter-spacing: 0.04em;
+  transition: color 0.15s;
+}
+.lang-btn:hover { color: rgba(3,22,61,0.7); }
+.lang-btn.active { color: var(--navy); font-weight: 700; }
+
+.mobile-nav-overlay .lang-sep { color: rgba(255,255,255,0.25); }
+.mobile-nav-overlay .lang-btn { color: rgba(255,255,255,0.4); }
+.mobile-nav-overlay .lang-btn:hover { color: rgba(255,255,255,0.7); }
+.mobile-nav-overlay .lang-btn.active { color: #fff; font-weight: 700; }
