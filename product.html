@@ -254,6 +254,7 @@
         <li><a href="collections.html" class="active" data-i18n="nav.collections">Collections</a></li>
         <li><a href="bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
         <li><a href="about.html" data-i18n="nav.about">About</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </nav>
     <div class="nav-actions">
@@ -262,7 +263,7 @@
         <span class="lang-sep">|</span>
         <button class="lang-btn" data-lang="tr">TR</button>
       </div>
-      <a href="bespoke.html" class="btn btn-primary btn-sm" data-i18n="nav.cta">Start Custom Project</a>
+      <a href="contact.html" class="btn btn-primary btn-sm" data-i18n="nav.cta">Get in Touch</a>
     </div>
     <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span>
@@ -280,6 +281,7 @@
     <li><a href="collections.html" data-i18n="nav.collections">Collections</a></li>
     <li><a href="bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
     <li><a href="about.html" data-i18n="nav.about">About</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
   </ul>
   <div class="lang-toggle" style="margin-bottom:24px;">
     <button class="lang-btn active" data-lang="en">EN</button>
@@ -287,7 +289,7 @@
     <button class="lang-btn" data-lang="tr">TR</button>
   </div>
   <div class="mobile-nav-cta">
-    <a href="bespoke.html" class="btn btn-on-dark btn-lg" data-i18n="nav.cta">Start Custom Project</a>
+    <a href="contact.html" class="btn btn-on-dark btn-lg" data-i18n="mobileNav.cta">Get in Touch</a>
   </div>
 </div>
 
@@ -300,7 +302,7 @@
     <div class="product-layout" id="productLayout">
       <!-- Populated by JS -->
       <div style="display:flex;align-items:center;justify-content:center;min-height:400px;color:var(--outline);">
-        <span class="label-caps">Loading product…</span>
+        <span class="label-caps" data-i18n="productStatic.loading">Loading product…</span>
       </div>
     </div>
   </div>
@@ -312,11 +314,11 @@
   <div class="container">
     <div class="section-head">
       <div class="section-label-row">
-        <span class="label-caps">Material Options</span>
+        <span class="label-caps" data-i18n="productStatic.materialLabel">Material Options</span>
       </div>
-      <h2 class="h-md">Fabric Selection</h2>
-      <p class="body-md" style="margin-top:12px;max-width:560px;">
-        Available in 40+ certified fabric options. All swatches shown are representative — exact colours vary by dye lot. Sample service available on request.
+      <h2 class="h-md" data-i18n="productStatic.fabricTitle">Fabric Selection</h2>
+      <p class="body-md" style="margin-top:12px;max-width:560px;" data-i18n="productStatic.fabricDesc">
+        Available in 40+ certified fabric options. All swatches shown are representative and exact colours may vary by dye lot. Sample service available on request.
       </p>
     </div>
     <div id="fabricsList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:16px;"></div>
@@ -330,13 +332,13 @@
     <div class="arch-inner">
       <div>
         <div class="section-label-row" style="margin-bottom:16px;">
-          <span class="label-caps">Internal Architecture</span>
+          <span class="label-caps" data-i18n="productStatic.archLabel">Internal Architecture</span>
         </div>
-        <h2 class="h-md" style="margin-bottom:16px;">Layer Construction</h2>
-        <p class="body-md" style="margin-bottom:32px;max-width:460px;">
-          Each layer is selected for a specific performance role. The sequence is engineered, not arbitrary — every material chosen for what it does, not just what it costs.
+        <h2 class="h-md" style="margin-bottom:16px;" data-i18n="productStatic.archTitle">Layer Construction</h2>
+        <p class="body-md" style="margin-bottom:32px;max-width:460px;" data-i18n="productStatic.archDesc">
+          Each layer is selected for a specific performance role. Every material is chosen for what it contributes to comfort, support, and durability.
         </p>
-        <a href="bespoke.html" class="btn btn-outline">Customise This Specification</a>
+        <a href="contact.html" class="btn btn-outline" data-i18n="productStatic.archCta">Customise This Product</a>
       </div>
       <div class="arch-diagram" id="archDiagram"></div>
     </div>
@@ -349,7 +351,7 @@
   <div class="container">
     <div class="section-head">
       <div class="section-label-row">
-        <span class="label-caps">You May Also Consider</span>
+        <span class="label-caps" data-i18n="productStatic.relatedLabel">You May Also Consider</span>
       </div>
       <h2 class="h-md" data-i18n="product.relatedProducts">Related Products</h2>
     </div>
@@ -375,8 +377,8 @@
         <path d="M176.544 14.3624C176.544 14.8579 176.421 15.3184 176.171 15.7438C175.882 16.2262 175.509 16.4674 175.053 16.4674H159.384C159.559 17.8707 161.007 18.5724 163.726 18.5724H165.462C166.664 18.5724 167.26 19.331 167.26 20.844C167.26 22.1377 166.659 22.7824 165.462 22.7824C163.261 22.7824 161.77 22.7385 160.994 22.6464C159.152 22.4315 157.77 21.9403 156.849 21.1641C155.494 20.0064 154.819 18.6381 154.819 17.055V11.1084C154.819 9.07793 155.823 7.54741 157.827 6.52561C159.349 5.74939 161.151 5.36347 163.243 5.36347H169.357C171.054 5.36347 172.553 5.688 173.856 6.34142C175.645 7.24921 176.54 8.62622 176.54 10.4681V14.358L176.544 14.3624ZM172.198 12.1214V10.7575C172.198 10.319 171.786 10.0208 170.957 9.86291C170.637 9.8059 169.747 9.72697 168.286 9.6261H163.616C162.261 9.6261 161.419 9.64803 161.086 9.69188C159.866 9.84976 159.257 10.2488 159.257 10.8891V12.117H172.194L172.198 12.1214Z" fill="white"/>
       </svg>
         </div>
-        <p data-i18n="footer.tagline">Precision-manufactured bed systems for export markets, hotel contracts, and retail partners worldwide.</p>
-        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;" data-i18n="footer.mfgNote">A manufacturer, not a retailer</span>
+        <p data-i18n="footer.tagline">Precision-manufactured bed bases, mattresses, and toppers for custom production worldwide.</p>
+        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;" data-i18n="footer.mfgNote">Custom manufacturing, engineered with precision</span>
       </div>
       <div class="footer-col">
         <div class="footer-col-head" data-i18n="footer.colCollections">Collections</div>
@@ -397,13 +399,13 @@
         <div class="footer-col-head" data-i18n="footer.colContact">Contact</div>
         <ul>
           <li><a href="mailto:export@elsehome.com">export@elsehome.com</a></li>
-          <li><a href="bespoke.html#contact" data-i18n="footer.requestProj">Request a Project</a></li>
+          <li><a href="contact.html" data-i18n="footer.requestProj">Request a Project</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span data-i18n="footer.copy">© 2024 Else Home. All rights reserved.</span>
-      <span data-i18n="footer.sub">Engineered in Turkey. Exported worldwide.</span>
+      <span data-i18n="footer.sub">Engineered in Turkey. Built for long-term use.</span>
     </div>
   </div>
 </footer>
@@ -449,28 +451,10 @@
       return '<tr><td>' + entry[0] + '</td><td>' + entry[1] + '</td></tr>';
     }).join('');
 
-    const features = getL(p, 'features');
-    const featureItems = features.map(function(f) { return '<li>' + f + '</li>'; }).join('');
-
-    const customItems = p.customOptions.map(function(o) { return '<li>' + o + '</li>'; }).join('');
+    const customChips = '<div class="option-chips">' +
+      p.customOptions.map(function(o) { return '<span class="option-chip">' + o + '</span>'; }).join('') +
+      '</div>';
     const subcategory = (lang === 'tr' && p.subcategory_tr) ? p.subcategory_tr : p.subcategory;
-
-    let swatchHtml = '';
-    if (p.fabrics && p.fabrics.length > 0) {
-      swatchHtml = '<div class="detail-section">' +
-        '<div class="detail-title">' + getT('product.availFabrics') + '</div>' +
-        '<div class="fabric-swatches">' +
-        p.fabrics.map(function(fid) {
-          const f = getFabric(fid);
-          return '<div class="swatch" title="' + f.name + '">' +
-            '<div class="swatch-dot" style="background:' + f.hex + ';"></div>' +
-            '<span class="swatch-name">' + f.name + '</span></div>';
-        }).join('') +
-        '<div class="swatch" title="More options available">' +
-          '<div class="swatch-dot" style="background:linear-gradient(135deg,#f0edec,#03163D,#8A1002);"></div>' +
-          '<span class="swatch-name">' + getT('product.moreOptions') + '</span></div>' +
-        '</div></div>';
-    }
 
     document.getElementById('productLayout').innerHTML =
       '<div class="product-image-stack">' +
@@ -494,12 +478,7 @@
         '<h1 class="product-name">' + p.name + '</h1>' +
         '<p class="product-desc">' + getL(p, 'description') + '</p>' +
         '<div class="product-actions">' +
-          '<a href="bespoke.html?model=' + p.id + '" class="btn btn-primary btn-lg">' + getT('product.requestBtn') + '</a>' +
-          '<a href="bespoke.html?model=' + p.id + '&custom=1" class="btn btn-cta btn-lg">' + getT('product.customiseBtn') + '</a>' +
-        '</div>' +
-        '<div class="detail-section">' +
-          '<div class="detail-title">' + getT('product.keyFeatures') + '</div>' +
-          '<ul class="feature-list">' + featureItems + '</ul>' +
+          '<a href="contact.html" class="btn btn-primary btn-lg">' + getT('product.contactBtn') + '</a>' +
         '</div>' +
         '<div class="detail-section">' +
           '<div class="detail-title">' + getT('product.technicalSpecs') + '</div>' +
@@ -507,42 +486,13 @@
         '</div>' +
         '<div class="detail-section">' +
           '<div class="detail-title">' + getT('product.customOptions') + '</div>' +
-          '<ul class="feature-list">' + customItems + '</ul>' +
+          customChips +
         '</div>' +
-        swatchHtml +
         '<div style="margin-top:32px;padding:20px 20px 20px 16px;background:var(--surface-container);border-left:2px solid var(--navy);">' +
           '<div class="label-caps" style="color:var(--navy);margin-bottom:6px;">' + getT('product.mtoTitle') + '</div>' +
           '<p style="font-size:13px;color:var(--text-muted);line-height:1.6;">' + getT('product.mtoDesc') + '</p>' +
         '</div>' +
       '</div>';
-
-    // Fabric section (full palette)
-    const fabricsSection = document.getElementById('fabricsSection');
-    if (p.fabrics && p.fabrics.length > 0) {
-      fabricsSection.style.display = '';
-      const groups = {
-        neutral: getT('product.neutralFabrics'),
-        warm:    getT('product.warmFabrics'),
-        cool:    getT('product.coolFabrics'),
-        dark:    getT('product.darkFabrics'),
-      };
-      let fabricHtml = '';
-      Object.entries(groups).forEach(function(entry) {
-        const group = entry[0]; const label = entry[1];
-        const allInGroup = Object.entries(fabrics).filter(function(fe) { return fe[1].group === group; });
-        if (allInGroup.length === 0) return;
-        fabricHtml += '<div style="font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--outline-light);margin:24px 0 12px;grid-column:1/-1;padding-bottom:8px;border-bottom:1px solid var(--outline-light);">' + label + '</div>';
-        allInGroup.forEach(function(fe) {
-          const id = fe[0]; const f = fe[1];
-          const isAvail = p.fabrics.includes(id);
-          fabricHtml += '<div style="display:flex;flex-direction:column;align-items:center;gap:6px;' + (!isAvail ? 'opacity:0.35;' : '') + '">' +
-            '<div style="width:44px;height:44px;border-radius:50%;background:' + f.hex + ';outline:1px solid rgba(0,0,0,0.08);border:' + (isAvail ? '2px solid var(--navy)' : '2px solid transparent') + ';transition:transform 0.15s;" title="' + f.name + '"></div>' +
-            '<span style="font-family:var(--font-head);font-size:9px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-muted);text-align:center;max-width:56px;line-height:1.3;">' + f.name + '</span>' +
-          '</div>';
-        });
-      });
-      document.getElementById('fabricsList').innerHTML = fabricHtml;
-    }
 
     // Architecture diagram
     if (p.layers && p.layers.length > 0) {
@@ -672,7 +622,7 @@
 
   if (!currentProduct) {
     document.getElementById('productLayout').innerHTML =
-      '<p style="color:var(--red);padding:40px 0;">Product not found. <a href="collections.html">Back to collections</a></p>';
+      '<p style="color:var(--red);padding:40px 0;">' + getT('product.notFound') + ' <a href="collections.html">' + getT('product.backToCollections') + '</a></p>';
   } else {
     renderProduct(currentProduct);
   }
