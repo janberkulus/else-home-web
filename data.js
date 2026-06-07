@@ -491,6 +491,88 @@ const baseProducts = [
     thumb: 'https://placehold.co/600x450/dcd9d9/03163D?text=Wool+Topper',
     featured: false,
   },
+
+  // ── HEADBOARDS ──────────────────────────────────────────────
+
+  {
+    id: 'hb-01',
+    name: 'Alto',
+    category: 'headboard',
+    subcategory: 'Wall-Mounted',
+    subcategory_tr: 'Duvara Monte',
+    shortDesc: 'Tall upholstered panel headboard for wall mounting.',
+    shortDesc_tr: 'Duvara monte için uzun döşemeli panel başlık.',
+    description: 'The Alto is a full-height upholstered panel headboard engineered for wall mounting. A solid MDF and hardwood composite frame gives structural rigidity, while the full-wrap fabric coverage can be specified from our 40+ fabric palette. Available in all standard widths and as a custom dimension.',
+    description_tr: 'Alto, duvara monte için geliştirilmiş tam boy döşemeli panel başlıktır. MDF ve sert ahşap kompozit çerçeve yapısal rijitlik sağlar; tam kaplama kumaş, 40+ kumaş paletimizden spesifike edilebilir. Tüm standart genişliklerde ve özel boyutlarda mevcuttur.',
+    features: ['Full-height upholstered panel', 'Solid MDF + hardwood composite frame', 'Wall-mounted with concealed fittings', '40+ fabric options', 'Custom width and height available'],
+    features_tr: ['Tam boy döşemeli panel', 'Sağlam MDF + sert ahşap kompozit çerçeve', 'Gizli bağlantıyla duvara montaj', '40+ kumaş seçeneği', 'Özel genişlik ve yükseklik mevcut'],
+    specs: { 'Frame': 'MDF + hardwood composite', 'Mounting': 'Wall-mounted, concealed fittings', 'Standard Height': '120 cm from mattress top', 'Sizes Available': '90 / 120 / 135 / 150 / 160 / 180 cm + Custom', 'Fabric': 'Full wrap — 40+ options' },
+    specs_tr: { 'Çerçeve': 'MDF + sert ahşap kompozit', 'Montaj': 'Duvara monte, gizli bağlantı', 'Standart Yükseklik': 'Yatak üstünden 120 cm', 'Mevcut Boyutlar': '90 / 120 / 135 / 150 / 160 / 180 cm + Özel', 'Kumaş': 'Tam kaplama — 40+ seçenek' },
+    customOptions: ['Fabric selection (40+ options)', 'Custom height', 'Custom width', 'Button tufting', 'Piping detail'],
+    fabrics: ['alabaster', 'linen', 'oyster', 'slate', 'graphite', 'onyx', 'camel', 'sage'],
+    imageFile: '1_alto.jpg',
+    featured: true,
+  },
+
+  {
+    id: 'hb-02',
+    name: 'Beam',
+    category: 'headboard',
+    subcategory: 'Panel',
+    subcategory_tr: 'Panel',
+    shortDesc: 'Low-profile upholstered panel headboard for floor or divan mounting.',
+    shortDesc_tr: 'Zemin veya divan montajı için alçak profilli döşemeli panel başlık.',
+    description: 'The Beam is a compact upholstered panel headboard designed for floor-standing or divan-mounted installation. At 80 cm in height from the mattress top, it presents a clean, restrained profile suitable for lower-ceiling environments and contract specifications requiring a slimmer visual footprint.',
+    description_tr: 'Beam, zemin ya da divana monte kurulum için tasarlanmış kompakt döşemeli panel başlıktır. Yatak üstünden 80 cm yüksekliğiyle, alçak tavanlı ortamlara ve dar görsel ayak izini tercih eden sözleşme spesifikasyonlarına uygun, sade ve ölçülü bir profil sunar.',
+    features: ['Low-profile 80 cm panel height', 'Floor-standing or divan-mounted', 'Full-wrap fabric coverage', 'Solid internal frame', 'Contract-suitable specification'],
+    features_tr: ['Alçak profilli 80 cm panel yüksekliği', 'Zemin veya divana monte', 'Tam kaplama kumaş', 'Sağlam iç çerçeve', 'Sözleşme spesifikasyonuna uygun'],
+    specs: { 'Frame': 'MDF composite', 'Mounting': 'Floor-standing or divan-attached', 'Standard Height': '80 cm from mattress top', 'Sizes Available': '90 / 120 / 135 / 150 / 160 / 180 cm + Custom', 'Fabric': 'Full wrap — 40+ options' },
+    specs_tr: { 'Çerçeve': 'MDF kompozit', 'Montaj': 'Zemin veya divana monte', 'Standart Yükseklik': 'Yatak üstünden 80 cm', 'Mevcut Boyutlar': '90 / 120 / 135 / 150 / 160 / 180 cm + Özel', 'Kumaş': 'Tam kaplama — 40+ seçenek' },
+    customOptions: ['Fabric selection (40+ options)', 'Custom height', 'Custom width', 'Quilted finish'],
+    fabrics: ['alabaster', 'linen', 'cream', 'stone', 'mist', 'charcoal', 'midnight', 'taupe'],
+    imageFile: '1_beam.jpg',
+    featured: false,
+  },
+
+  {
+    id: 'hb-03',
+    name: 'Arch',
+    category: 'headboard',
+    subcategory: 'Freestanding',
+    subcategory_tr: 'Serbest Duran',
+    shortDesc: 'Arched freestanding headboard with floor legs.',
+    shortDesc_tr: 'Zemin ayaklı, kemerli serbest duran başlık.',
+    description: 'The Arch is a freestanding upholstered headboard with a gently curved top profile and integrated floor legs. Designed to work independently of the wall, it pairs with any Else Home bed base and can be specified in matching or contrasting fabric. The arched silhouette suits both residential and hospitality contexts.',
+    description_tr: 'Arch, hafif kavisli üst profili ve entegre zemin ayaklarıyla serbest duran döşemeli bir başlıktır. Duvardan bağımsız çalışacak şekilde tasarlanmış olup tüm Else Home baza modelleriyle uyumludur. Aynı veya kontrast kumaşla spesifike edilebilir. Kemer silueti hem konut hem de otelcilik ortamlarına uygundur.',
+    features: ['Curved arch top profile', 'Integrated freestanding floor legs', 'Pairs with any bed base', 'Full-wrap fabric coverage', 'Available in matching or contrasting fabric'],
+    features_tr: ['Kavisli kemer üst profili', 'Entegre serbest zemin ayakları', 'Her baza modeliyle uyumlu', 'Tam kaplama kumaş', 'Eşleşen veya kontrast kumaşla mevcut'],
+    specs: { 'Frame': 'Hardwood + MDF composite', 'Mounting': 'Freestanding with floor legs', 'Leg Finish': 'Matte black or brushed brass', 'Standard Height': '110 cm from floor', 'Sizes Available': '120 / 135 / 150 / 160 / 180 cm + Custom', 'Fabric': 'Full wrap — 40+ options' },
+    specs_tr: { 'Çerçeve': 'Sert ahşap + MDF kompozit', 'Montaj': 'Zemin ayaklı serbest duran', 'Ayak Kaplaması': 'Mat siyah veya fırçalanmış pirinç', 'Standart Yükseklik': 'Zeminden 110 cm', 'Mevcut Boyutlar': '120 / 135 / 150 / 160 / 180 cm + Özel', 'Kumaş': 'Tam kaplama — 40+ seçenek' },
+    customOptions: ['Fabric selection (40+ options)', 'Leg finish (matte black / brass)', 'Custom width', 'Arch profile variation'],
+    fabrics: ['alabaster', 'oyster', 'camel', 'cognac', 'sage', 'slate', 'graphite', 'midnight'],
+    imageFile: '1_arch.jpg',
+    featured: true,
+  },
+
+  {
+    id: 'hb-04',
+    name: 'Curve',
+    category: 'headboard',
+    subcategory: 'Bespoke',
+    subcategory_tr: 'Özel',
+    shortDesc: 'Fully custom curved headboard developed to your brief.',
+    shortDesc_tr: 'Briffinize göre geliştirilen tamamen özel kavisli başlık.',
+    description: 'The Curve is a bespoke headboard form designed for projects that require a specific shape, dimension, or finish that falls outside our standard range. Working from your sketch, reference image, or specification document, we develop a production-ready model — fabric, curve geometry, and mounting method all agreed before manufacture begins.',
+    description_tr: 'Curve, standart yelpazemizin dışında kalan belirli bir şekil, boyut veya bitiş gerektiren projeler için tasarlanmış tamamen özel bir başlık formudur. Eskizinizden, referans görselinizden veya spesifikasyon belgenizden yola çıkarak üretime hazır bir model geliştiriyoruz; kumaş, eğri geometrisi ve montaj yöntemi üretime başlamadan önce netleştirilir.',
+    features: ['Fully bespoke form and dimensions', 'Developed from your sketch or reference', 'Any fabric from the 40+ palette', 'Prototype produced before bulk order', 'Wall-mounted or freestanding options'],
+    features_tr: ['Tamamen özel form ve boyutlar', 'Eskiz veya referanstan geliştirme', '40+ paletten herhangi bir kumaş', 'Toplu siparişten önce prototip üretimi', 'Duvara monte veya serbest duran seçenekleri'],
+    specs: { 'Frame': 'Specified to brief', 'Mounting': 'Wall-mounted or freestanding — specified to brief', 'Dimensions': 'Fully custom', 'Lead Time': '3–5 weeks from approved specification', 'Minimum Order': 'No minimum' },
+    specs_tr: { 'Çerçeve': 'Brifinge göre spesifike edilir', 'Montaj': 'Duvara monte veya serbest duran — brifinge göre', 'Boyutlar': 'Tamamen özel', 'Teslim Süresi': 'Onaylı spesifikasyondan 3–5 hafta', 'Minimum Sipariş': 'Yok' },
+    customOptions: ['Custom geometry and dimensions', 'Fabric selection (40+ options)', 'Mounting method', 'Button tufting or quilted finish', 'Leg or base specification'],
+    fabrics: ['alabaster', 'linen', 'oyster', 'camel', 'cognac', 'clay', 'slate', 'ocean', 'graphite', 'onyx', 'midnight'],
+    imageFile: '1_curve.jpg',
+    featured: false,
+  },
 ];
 
 const categoryPlaceholders = {
@@ -505,6 +587,10 @@ const categoryPlaceholders = {
   topper: {
     image: 'brand_assets/placeholders/topper-main.svg',
     thumb: 'brand_assets/placeholders/topper-thumb.svg',
+  },
+  headboard: {
+    image: 'https://placehold.co/1200x900/ede8e0/03163D?text=Headboard',
+    thumb: 'https://placehold.co/600x450/ede8e0/03163D?text=Headboard',
   },
 };
 
@@ -594,6 +680,15 @@ const categories = [
     description: 'Memory foam, natural latex, and wool topper systems designed to enhance mattress comfort and surface performance.',
     description_tr: 'Yatak konforunu ve yüzey performansını geliştirmek için tasarlanmış visco köpük, doğal lateks ve yün ped sistemleri.',
     image: 'https://placehold.co/800x600/dcd9d9/03163D?text=Toppers',
+  },
+  {
+    id: 'headboard',
+    name: 'Headboards',
+    name_tr: 'Başlıklar',
+    count: 4,
+    description: 'Upholstered headboards for wall-mounted or freestanding installation. Available in 40+ fabrics, matched to bed base models or specified independently.',
+    description_tr: 'Duvara monte veya serbest duran kurulum için döşemeli başlıklar. 40+ kumaşta mevcut, baza modelleriyle eşleştirilebilir veya bağımsız olarak sipariş edilebilir.',
+    image: 'https://placehold.co/800x600/ede8e0/03163D?text=Headboards',
   },
 ];
 

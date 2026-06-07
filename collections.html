@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Collections — Else Home</title>
-  <meta name="description" content="Browse Else Home's full collection of precision-manufactured bed bases, mattresses, and toppers built for custom production.">
+  <meta name="description" content="Browse Else Home's full collection of bed bases, mattresses, toppers, and headboards — all available in custom specifications.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -133,7 +133,7 @@
       <div>
         <h1 class="h-lg" id="pageTitle">All Collections</h1>
         <p class="body-md" style="margin-top:8px;max-width:560px;" id="pageDesc">
-          28 models across bed base systems, mattresses, and toppers — all available in custom configurations.
+          32 models across bed bases, mattresses, toppers, and headboards — all available in custom specifications.
         </p>
       </div>
       <div class="page-header-count" id="productCount">28 products</div>
@@ -154,7 +154,7 @@
           <li>
             <button class="filter-btn active" data-cat="all">
               <span data-i18n="collections.allProducts">All Products</span>
-              <span class="filter-count">28</span>
+              <span class="filter-count">32</span>
             </button>
           </li>
           <li>
@@ -173,6 +173,12 @@
             <button class="filter-btn" data-cat="topper">
               <span data-i18n="collections.toppers">Toppers</span>
               <span class="filter-count">3</span>
+            </button>
+          </li>
+          <li>
+            <button class="filter-btn" data-cat="headboard">
+              <span data-i18n="collections.headboards">Headboards</span>
+              <span class="filter-count">4</span>
             </button>
           </li>
         </ul>
@@ -273,6 +279,7 @@
       'bed-base': getT('bedBase'),
       'mattress': getT('mattresses'),
       'topper': getT('toppers'),
+      'headboard': getT('headboards'),
       'all': getT('allProducts'),
     };
   }
@@ -286,6 +293,7 @@
       'bed-base': products.filter(p => p.category === 'bed-base').length,
       'mattress': products.filter(p => p.category === 'mattress').length,
       'topper': products.filter(p => p.category === 'topper').length,
+      'headboard': products.filter(p => p.category === 'headboard').length,
     };
     document.getElementById('catFilters').querySelectorAll('[data-cat]').forEach(btn => {
       const badge = btn.querySelector('.filter-count');
@@ -297,7 +305,7 @@
 
   // Read URL param
   const urlCat = new URLSearchParams(window.location.search).get('cat');
-  if (urlCat && ['bed-base','mattress','topper'].includes(urlCat)) currentCat = urlCat;
+  if (urlCat && ['bed-base','mattress','topper','headboard'].includes(urlCat)) currentCat = urlCat;
 
   function renderCards(list) {
     var lang = getLang();
