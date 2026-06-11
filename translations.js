@@ -117,7 +117,7 @@ window.ElseTranslations = {
     // ── COLLECTIONS ─────────────────────────────────────────
     collections: {
       pageTitle:    'All Collections',
-      pageDesc:     '32 models across bed bases, mattresses, toppers, and headboards — all available in custom specifications.',
+      pageDesc:     '34 models across bed bases, mattresses, toppers, and headboards — all available in custom specifications.',
       productCount: 'products',
       filterCat:    'Category',
       allProducts:  'All Products',
@@ -477,7 +477,7 @@ window.ElseTranslations = {
     // ── COLLECTIONS ─────────────────────────────────────────
     collections: {
       pageTitle:    'Tüm Koleksiyonlar',
-      pageDesc:     '32 model — bazalar, yataklar, pedler ve başlıklar — hepsi özel spesifikasyonlarla sunulur.',
+      pageDesc:     '34 model — bazalar, yataklar, pedler ve başlıklar — hepsi özel spesifikasyonlarla sunulur.',
       productCount: 'ürün',
       filterCat:    'Kategori',
       allProducts:  'Tüm Ürünler',

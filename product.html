@@ -478,9 +478,6 @@
         '</div>' +
         '<h1 class="product-name">' + p.name + '</h1>' +
         '<p class="product-desc">' + getL(p, 'description') + '</p>' +
-        '<div class="product-actions">' +
-          '<a href="contact.html" class="btn btn-primary btn-lg">' + getT('product.contactBtn') + '</a>' +
-        '</div>' +
         '<div class="detail-section">' +
           '<div class="detail-title">' + getT('product.technicalSpecs') + '</div>' +
           '<table class="spec-table">' + specsRows + '</table>' +
@@ -543,15 +540,13 @@
       const nextBtn  = document.getElementById('galleryNext');
 
       const folder   = p.imageFolder   || '';
-      const base     = p.imageBaseName || '';
-      const ext      = p.imageFile ? (p.imageFile.match(/\.[^.]+$/) || ['.jpg'])[0] : '.jpg';
+      const ext      = p.imageExt || '.jpg';
+      // Use imageBaseSlug (clean slug without _N) to probe _1, _2 ... _6
+      const slug     = p.imageBaseSlug || (p.imageBaseName || '').replace(/_\d+$/, '');
 
-      const candidates = [
-        p.image,
-        folder + base + '_detail' + ext,
-        folder + base + '_side'   + ext,
-        folder + base + '_base'   + ext,
-      ];
+      const candidates = [1, 2, 3, 4, 5, 6].map(function(n) {
+        return folder + slug + '_' + n + ext;
+      });
 
       let images  = [];
       let current = 0;
