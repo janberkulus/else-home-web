@@ -100,6 +100,9 @@
     }
     .submit-btn:hover { background: var(--red-hover); }
 
+    /* Fix nav logo: "home" paths are white — override to navy on light nav */
+    .site-nav .nav-logo path[fill="white"] { fill: #03163D; }
+
     @media (max-width: 900px) {
       .contact-hero-inner { max-width: 100%; }
       .contact-inner { grid-template-columns: 1fr; }

@@ -694,7 +694,7 @@ const categories = [
     count: 6,
     description: 'Adjustable, platform, divan, ottoman, and upholstered bases — all available in custom sizes and fabric specifications.',
     description_tr: 'Ayarlanabilir, platform, divan, ottoman ve döşemeli bazalar — tamamı özel ölçü ve kumaş spesifikasyonlarıyla sunulur.',
-    image: 'https://placehold.co/800x600/f0edec/03163D?text=Bed+Base+Systems',
+    image: 'brand_assets/placeholders/bed-base-main.svg',
   },
   {
     id: 'mattress',
@@ -703,7 +703,7 @@ const categories = [
     count: 6,
     description: 'Pocket spring, memory foam, latex, and hybrid mattresses built to custom specifications for every comfort requirement.',
     description_tr: 'Her konfor gereksinimine göre özel spesifikasyonlarla üretilen cep yaylı, visco köpük, lateks ve hibrit yataklar.',
-    image: 'https://placehold.co/800x600/e5e2e1/03163D?text=Mattresses',
+    image: 'images/products/mattress/aura_1.jpg',
   },
   {
     id: 'topper',
@@ -712,7 +712,7 @@ const categories = [
     count: 3,
     description: 'Memory foam, natural latex, and wool topper systems designed to enhance mattress comfort and surface performance.',
     description_tr: 'Yatak konforunu ve yüzey performansını geliştirmek için tasarlanmış visco köpük, doğal lateks ve yün ped sistemleri.',
-    image: 'https://placehold.co/800x600/dcd9d9/03163D?text=Toppers',
+    image: 'images/products/topper/visco_ped_1.jpg',
   },
   {
     id: 'headboard',
@@ -721,7 +721,7 @@ const categories = [
     count: 19,
     description: 'Upholstered headboards in 19 models. Available in 40+ fabrics across all standard sizes and custom dimensions.',
     description_tr: 'Döşemeli başlıklar, 19 modelde. Tüm standart ölçülerde ve özel boyutlarda 40+ kumaşta mevcut.',
-    image: 'https://placehold.co/800x600/ede8e0/03163D?text=Headboards',
+    image: 'brand_assets/placeholders/bed-base-main.svg',
   },
 ];
 
