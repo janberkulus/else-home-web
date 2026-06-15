@@ -603,20 +603,20 @@ const baseProducts = [
 
 const categoryPlaceholders = {
   'bed-base': {
-    image: 'brand_assets/placeholders/bed-base-main.svg',
-    thumb: 'brand_assets/placeholders/bed-base-thumb.svg',
+    image: 'images/home/base-preview.jpg',
+    thumb: 'images/home/base-preview.jpg',
   },
   mattress: {
-    image: 'brand_assets/placeholders/mattress-main.svg',
-    thumb: 'brand_assets/placeholders/mattress-thumb.svg',
+    image: 'images/home/mattress-preview.jpg',
+    thumb: 'images/home/mattress-preview.jpg',
   },
   topper: {
-    image: 'brand_assets/placeholders/topper-main.svg',
-    thumb: 'brand_assets/placeholders/topper-thumb.svg',
+    image: 'images/home/topper-preview.jpg',
+    thumb: 'images/home/topper-preview.jpg',
   },
   headboard: {
-    image: 'https://placehold.co/1200x900/ede8e0/03163D?text=Headboard',
-    thumb: 'https://placehold.co/600x450/ede8e0/03163D?text=Headboard',
+    image: 'images/home/headboard-preview.jpg',
+    thumb: 'images/home/headboard-preview.jpg',
   },
 };
 
