@@ -694,7 +694,7 @@ const categories = [
     count: 6,
     description: 'Adjustable, platform, divan, ottoman, and upholstered bases — all available in custom sizes and fabric specifications.',
     description_tr: 'Ayarlanabilir, platform, divan, ottoman ve döşemeli bazalar; tamamı özel ölçü ve kumaş seçenekleriyle sunulur.',
-    image: 'brand_assets/placeholders/bed-base-main.svg',
+    image: 'images/home/base-preview.jpg',
   },
   {
     id: 'mattress',
@@ -703,7 +703,7 @@ const categories = [
     count: 6,
     description: 'Pocket spring, memory foam, latex, and hybrid mattresses built to custom specifications for every comfort requirement.',
     description_tr: 'Farklı konfor ihtiyaçlarına göre uyarlanabilen cep yaylı, visco köpük, lateks ve hibrit yataklar.',
-    image: 'images/products/mattress/aura_1.jpg',
+    image: 'images/home/mattress-preview.jpg',
   },
   {
     id: 'topper',
@@ -712,7 +712,7 @@ const categories = [
     count: 3,
     description: 'Memory foam, natural latex, and wool topper systems designed to enhance mattress comfort and surface performance.',
     description_tr: 'Yatak konforunu ve yüzey performansını geliştirmek için tasarlanmış visco köpük, doğal lateks ve yün ped sistemleri.',
-    image: 'images/products/topper/visco_ped_1.jpg',
+    image: 'images/home/topper-preview.jpg',
   },
   {
     id: 'headboard',
@@ -721,7 +721,7 @@ const categories = [
     count: 19,
     description: 'Upholstered headboards in 19 models. Available in 40+ fabrics across all standard sizes and custom dimensions.',
     description_tr: 'Döşemeli başlıklar, 19 modelde. Tüm standart ölçülerde ve özel boyutlarda 40+ kumaşta mevcut.',
-    image: 'brand_assets/placeholders/bed-base-main.svg',
+    image: 'images/home/headboard-preview.jpg',
   },
 ];
 
