@@ -158,6 +158,12 @@
             </button>
           </li>
           <li>
+            <button class="filter-btn" data-cat="headboard">
+              <span data-i18n="collections.headboards">Headboards</span>
+              <span class="filter-count">19</span>
+            </button>
+          </li>
+          <li>
             <button class="filter-btn" data-cat="bed-base">
               <span data-i18n="collections.bedBase">Bed Base Systems</span>
               <span class="filter-count">6</span>
@@ -175,18 +181,7 @@
               <span class="filter-count">3</span>
             </button>
           </li>
-          <li>
-            <button class="filter-btn" data-cat="headboard">
-              <span data-i18n="collections.headboards">Headboards</span>
-              <span class="filter-count">19</span>
-            </button>
-          </li>
         </ul>
-      </div>
-
-      <div class="sidebar-section" id="subcatSection">
-        <span class="filter-label" id="subcatLabel">Type</span>
-        <ul class="filter-list" id="subcatFilters"></ul>
       </div>
 
       <div style="padding: 20px; background: var(--surface-container); border-radius: var(--r); margin-top: 16px;">
@@ -285,7 +280,6 @@
   }
 
   let currentCat = 'all';
-  let currentSubcat = 'all';
 
   function updateCategoryCounts() {
     const counts = {
@@ -347,59 +341,12 @@
     }, 50);
   }
 
-  function getSubcats(cat) {
-    const items = cat === 'all' ? products : products.filter(p => p.category === cat);
-    return [...new Set(items.map(p => p.subcategory))].sort();
-  }
-
-  function renderSubcatFilters(cat) {
-    var lang = getLang();
-    const section = document.getElementById('subcatSection');
-    const subcatList = document.getElementById('subcatFilters');
-    const subcats = getSubcats(cat);
-    if (subcats.length <= 1 || cat === 'all') {
-      section.style.display = 'none';
-      return;
-    }
-    var catNames = getCatNames();
-    section.style.display = '';
-    var typeLabel = getT('typeLabel') || 'Type';
-    document.getElementById('subcatLabel').textContent = typeLabel;
-    var allLabel = getT('allType') || 'All';
-    subcatList.innerHTML = `
-      <li><button class="filter-btn active" data-subcat="all">${allLabel} <span class="filter-count">${subcats.reduce((a,s) => a + products.filter(p=>p.category===cat&&p.subcategory===s).length, 0)}</span></button></li>
-      ${subcats.map(s => {
-        const count = products.filter(p => p.category === cat && p.subcategory === s).length;
-        // find TR subcategory name from a product
-        var p = products.find(pr => pr.category === cat && pr.subcategory === s);
-        var label = (lang === 'tr' && p && p.subcategory_tr) ? p.subcategory_tr : s;
-        return `<li><button class="filter-btn" data-subcat="${s}">${label} <span class="filter-count">${count}</span></button></li>`;
-      }).join('')}
-    `;
-    subcatList.querySelectorAll('[data-subcat]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        subcatList.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentSubcat = btn.dataset.subcat;
-        applyFilters();
-      });
-    });
-  }
-
   function applyFilters() {
-    var lang = getLang();
     var catNames = getCatNames();
     let list = currentCat === 'all' ? products : products.filter(p => p.category === currentCat);
-    if (currentSubcat !== 'all') list = list.filter(p => p.subcategory === currentSubcat);
 
     const cat = catNames[currentCat] || getT('allProducts');
-    // For activeCatTitle, if subcategory is active use its TR name
-    var activeTitleText = cat;
-    if (currentSubcat !== 'all') {
-      var sp = list[0] || products.find(p => p.subcategory === currentSubcat);
-      activeTitleText = (lang === 'tr' && sp && sp.subcategory_tr) ? sp.subcategory_tr : currentSubcat;
-    }
-    document.getElementById('activeCatTitle').textContent = activeTitleText;
+    document.getElementById('activeCatTitle').textContent = cat;
     document.getElementById('pageTitle').textContent = cat;
 
     const catData = categories.find(c => c.id === currentCat);
@@ -420,20 +367,16 @@
       document.getElementById('catFilters').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentCat = btn.dataset.cat;
-      currentSubcat = 'all';
-      renderSubcatFilters(currentCat);
       applyFilters();
     });
   });
 
   // Initial render
   updateCategoryCounts();
-  renderSubcatFilters(currentCat);
   applyFilters();
 
   // Re-render hook for language change
   window.__rerenderCollections = function(lang) {
-    renderSubcatFilters(currentCat);
     applyFilters();
   };
 </script>
