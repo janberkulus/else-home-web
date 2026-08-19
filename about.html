@@ -607,4 +607,44 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span data-i18n="footer.copy">© 2024 
+      <span data-i18n="footer.copy">© 2024 Else Home. Tüm hakları saklıdır.</span>
+      <span data-i18n="footer.sub">Türkiye'de üretiyor, dünyaya ulaştırıyoruz.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('visible'); io.unobserve(x.target); }});
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+<script>
+(function(){
+  var btn = document.querySelector('.nav-hamburger');
+  var overlay = document.getElementById('mobileNav');
+  if (!btn || !overlay) return;
+  function closeMenu() {
+    overlay.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  btn.addEventListener('click', function() {
+    var open = overlay.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  var closeBtn = document.getElementById('mobileNavClose');
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  overlay.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', closeMenu);
+  });
+})();
+</script>
+<script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; window.scrollTo(0, 0);</script>
+<script src="translations.js"></script>
+</body>
+</html>
