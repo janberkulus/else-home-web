@@ -466,8 +466,6 @@
     const customChips = '<div class="option-chips">' +
       getL(p, 'customOptions').map(function(o) { return '<span class="option-chip">' + o + '</span>'; }).join('') +
       '</div>';
-    const subcategory = (lang === 'tr' && p.subcategory_tr) ? p.subcategory_tr : p.subcategory;
-
     document.getElementById('productLayout').innerHTML =
       '<div class="product-image-stack">' +
         '<div class="product-gallery">' +
@@ -484,8 +482,6 @@
       '<div class="product-info">' +
         '<div class="product-cat-line">' +
           '<span class="label-caps">' + catMap[p.category] + '</span>' +
-          '<span style="color:var(--outline-light);">·</span>' +
-          '<span class="label-caps">' + subcategory + '</span>' +
         '</div>' +
         '<h1 class="product-name">' + p.name + '</h1>' +
         '<p class="product-desc">' + getL(p, 'description') + '</p>' +
