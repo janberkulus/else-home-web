@@ -38,19 +38,13 @@ window.ElseTranslations = {
 
     // ── INDEX ───────────────────────────────────────────────
     index: {
-      heroKicker:   'Kayseri Free Zone, Türkiye',
+      heroKicker:   'ELSE HOME',
       heroH1line1:  'Bed systems',
       heroH1line2:  'built to your',
       heroH1line3:  'specification.',
       heroDesc:     'We manufacture to order for brands, importers and distributors at our facility in the Kayseri Free Zone. You determine the dimensions, materials and details; we carry out the production.',
       heroCta1:     'View Products',
       heroCta2:     'Request a Quote',
-      heroBadge:    'Custom production',
-      heroBadgeSub: 'No minimum order requirement',
-      metric1:      '40+ Fabrics',
-      metric2:      '4–8 Week Lead Time',
-      metric3:      'No Minimum Order',
-      metric4:      'Kayseri Free Zone',
       videoLabel:   'Our Facility',
       videoH2:      'Inside our production',
       productsLabel:'Product Groups',
@@ -93,7 +87,7 @@ window.ElseTranslations = {
 
     // ── COLLECTIONS ─────────────────────────────────────────
     collections: {
-      pageTitle:    'All Products',
+      pageTitle:    'Product Catalogue',
       pageDesc:     '34 models across bed bases, mattresses, toppers and headboards. Every one can be built to your dimensions and materials.',
       productCount: 'products',
       filterCat:    'Category',
@@ -165,7 +159,7 @@ window.ElseTranslations = {
       prodSeqLabel: 'On the Floor',
       prodSeqH2a:   'How a unit',
       prodSeqH2b:   'gets built',
-      prodSeqDesc:  'Every unit follows the same six stages and the same inspections, whether it is a single sample or a full container.',
+      prodSeqDesc:  '',
       ps1Title:     'Materials in',
       ps1Desc:      'Timber, foam, springs and fabric are inspected against the specification before entering production.',
       ps2Title:     'Cutting and upholstery',
@@ -214,8 +208,6 @@ window.ElseTranslations = {
       processH2a:   'From your brief',
       processH2b:   'to the container',
       processDesc:  'Share your requirements and we will respond with a production outline, lead time and materials proposal, generally within one business day.',
-      timelineLabel:'Lead Times',
-      timelineDesc: 'Sample: 2–4 weeks from approval. Bulk production: 4–8 weeks from sample sign-off.',
       step1Num:     '01',
       step1Title:   'Your brief',
       step1Desc:    'Send dimensions, quantity, intended use and any references by form or email. We reply with a clear production outline.',
@@ -379,24 +371,18 @@ window.ElseTranslations = {
 
     // ── INDEX ───────────────────────────────────────────────
     index: {
-      heroKicker:   'Kayseri Serbest Bölgesi',
-      heroH1line1:  'Markanıza özel',
-      heroH1line2:  'yatak sistemleri',
-      heroH1line3:  'üretiyoruz.',
-      heroDesc:     'Kayseri Serbest Bölgesi’ndeki tesisimizde; markalar, ithalatçılar ve distribütörler için özel üretim yapıyoruz. Ölçü, malzeme ve detayları siz belirleyin, üretimi biz gerçekleştirelim.',
+      heroKicker:   'ELSE HOME',
+      heroH1line1:  'İhtiyacınıza',
+      heroH1line2:  'göre üretiyor,',
+      heroH1line3:  'dünyaya ulaştırıyoruz.',
+      heroDesc:     'Kayseri Serbest Bölgesi’ndeki üretim tesisimizde, markalar, ithalatçılar ve distribütörler için farklı ölçü, malzeme ve teknik gereksinimlere uygun yatak sistemleri üretiyoruz.',
       heroCta1:     'Ürünleri İnceleyin',
       heroCta2:     'Teklif Alın',
-      heroBadge:    'Özel üretim',
-      heroBadgeSub: 'Minimum sipariş şartı yoktur',
-      metric1:      '40+ Kumaş',
-      metric2:      '4–8 Hafta Termin',
-      metric3:      'Minimum Sipariş Yok',
-      metric4:      'Kayseri Serbest Bölgesi',
       videoLabel:   'Üretim Tesisimiz',
-      videoH2:      'Üretimimizi yakından tanıyın',
+      videoH2:      'Bizi yakından tanıyın',
       productsLabel:'Ürün Grupları',
-      productsH2a:  'Dört ürün',
-      productsH2b:  'grubu.',
+      productsH2a:  'Dört ürün grubu.',
+      productsH2b:  '',
       cmLabel:      'Özel Üretim',
       cmH2a:        'Üretim, sizin',
       cmH2b:        'talebinizle başlar.',
@@ -406,7 +392,7 @@ window.ElseTranslations = {
       cmFeat3:      'Seri üretim öncesi numune onayı',
       cmFeat4:      'Özel marka ve OEM üretim',
       cmFeat5:      'İhracat dokümantasyonu ve sevkiyat',
-      cmFeat6:      'Teslimat koşullarınıza uygun ambalaj',
+      cmFeat6:      'Teslimat koşullarınıza uygun paketleme ve gönderim',
       cmCta:        'Teklif Alın',
       cmGrid1Title: 'Talep',
       cmGrid1Desc:  'Ölçü, kumaş ve yapı detayları tarafınızca belirlenir.',
@@ -415,7 +401,7 @@ window.ElseTranslations = {
       cmGrid3Title: 'Üretim',
       cmGrid3Desc:  'Her ürün, onaylanan numuneye göre kontrol edilir.',
       cmGrid4Title: 'Dokümantasyon',
-      cmGrid4Desc:  'Fatura, ambalaj listesi ve ihracat belgeleri sevkiyatla birlikte hazırlanır.',
+      cmGrid4Desc:  'Fatura, malzeme listesi ve ihracat belgeleri sevkiyatla birlikte hazırlanır.',
       stat1:        'İhracat Pazarı',
       stat2:        'Yıllık Üretim',
       stat3:        'Model',
@@ -434,7 +420,7 @@ window.ElseTranslations = {
 
     // ── COLLECTIONS ─────────────────────────────────────────
     collections: {
-      pageTitle:    'Tüm Ürünler',
+      pageTitle:    'Ürün Kataloğu',
       pageDesc:     'Baza, yatak, ped ve başlık gruplarında 34 model. Tüm modeller talep edilen ölçü ve malzemelerle üretilebilir.',
       productCount: 'ürün',
       filterCat:    'Kategori',
@@ -466,10 +452,10 @@ window.ElseTranslations = {
     // ── ABOUT ────────────────────────────────────────────────
     about: {
       heroTag:      'Biz Kimiz',
-      heroH1a:      'Kayseri Serbest',
-      heroH1b:      'Bölgesi’nde yatak',
-      heroH1c:      'sistemi üretiyoruz.',
-      heroDesc:     'Markalar, ithalatçılar, distribütörler ve otel projeleri için baza, yatak, ped ve başlık üretiyoruz.',
+      heroH1a:      'Kayseri’den dünyaya,',
+      heroH1b:      'yatak sistemleri',
+      heroH1c:      'üretiyoruz.',
+      heroDesc:     'Kayseri Serbest Bölgesi’ndeki üretim tesisimizde; markalar, ithalatçılar ve distribütörler için baza, yatak, ped ve başlık üretimi gerçekleştiriyoruz.',
       stat1:        'Model',
       stat2:        'İhracat Pazarı',
       stat3:        'Yıllık Üretim',
@@ -490,7 +476,7 @@ window.ElseTranslations = {
       t2024desc:    "40+ ihracat pazarı, yılda 200.000+ adet üretim, dört ürün grubu.",
       capLabel:     'Neler Üretiyoruz',
       capH2:        'Üretim kapsamımız',
-      capDesc:      'Katalog üretiminden, tarafınızca iletilen çizimlerle geliştirilen modellere kadar.',
+      capDesc:      'Katalog modellerinden, size özel geliştirilen çözümlere kadar esnek üretim seçenekleri sunuyoruz.',
       cap1Title:    'Döşemeli Bazalar',
       cap1Desc:     'Kumaş seçeneklerimizin tamamıyla platform, divan, wingback ve sandıklı baza.',
       cap2Title:    'Yataklar',
@@ -498,7 +484,7 @@ window.ElseTranslations = {
       cap3Title:    'Başlıklar',
       cap3Desc:     'Duvara monte ve ayaklı modeller. Bazayla eşleştirilebilir veya tek başına sipariş edilebilir.',
       cap4Title:    'OEM ve Özel Marka',
-      cap4Desc:     'Markanıza, etiketinize ve ambalaj düzeninize göre üretim yapılır.',
+      cap4Desc:     'Markanıza ve etiketinize göre üretim yapılır.',
       cap5Title:    'Sevkiyat',
       cap5Desc:     'Ambalaj, navlun belgeleri ve gümrük evrakları teslimat planınıza göre hazırlanır.',
 
@@ -506,7 +492,7 @@ window.ElseTranslations = {
       prodSeqLabel: 'Üretim Süreci',
       prodSeqH2a:   'Bir ürün nasıl',
       prodSeqH2b:   'üretiliyor',
-      prodSeqDesc:  'Tek numune veya dolu konteyner fark etmeksizin, her ürün aynı altı aşamadan ve aynı kontrollerden geçer.',
+      prodSeqDesc:  '',
       ps1Title:     'Malzeme girişi',
       ps1Desc:      'Kereste, köpük, yay ve kumaş üretime alınmadan önce spesifikasyona göre kontrol edilir.',
       ps2Title:     'Kesim ve döşeme',
@@ -537,26 +523,24 @@ window.ElseTranslations = {
     // ── BESPOKE ─────────────────────────────────────────────
     bespoke: {
       heroTag:      'Özel Üretim',
-      heroH1a:      'Ölçü, malzeme',
-      heroH1b:      've yapı detayları',
-      heroH1c:      'talebinize göre.',
-      heroDesc:     'Tüm modellerimiz ölçü, malzeme, konfor katmanı ve bitiş detaylarıyla uyarlanabilir. Uygun bir model bulunmadığında, tarafınızca iletilen çizimlerden yeni bir model geliştirilir.',
+      heroH1a:      'Talebinize göre',
+      heroH1b:      'özelleştirilmiş',
+      heroH1c:      'detaylar.',
+      heroDesc:     'Tüm modellerimiz; ölçü, malzeme ve bitiş detayları açısından ihtiyacınıza göre özelleştirilebilir. Mevcut seçenekler arasında uygun bir model bulunmaması durumunda, ilettiğiniz çizimler doğrultusunda size özel yeni bir model geliştirilebilir.',
       heroCta1:     'Proje Başlatın',
       heroCta2:     'Ürünleri İnceleyin',
       cap1Title:    'Özel Ölçü',
-      cap1Desc:     'Genişlik, uzunluk ve yükseklik talebinize göre belirlenir. Standart dışı ölçüler rutin olarak üretilir.',
+      cap1Desc:     'Genişlik, uzunluk ve yükseklik talebinize göre belirlenir.',
       cap2Title:    'Malzeme Seçimi',
       cap2Desc:     '40+ kumaş seçeneği, ayarlanabilir dolgu yapıları ve ihtiyaca göre seçilen taşıyıcı malzemeler.',
       cap3Title:    'Yeni Model Geliştirme',
       cap3Desc:     'Bir çizim, fotoğraf veya referans iletin; üretime uygun bir modele dönüştürelim.',
       cap4Title:    'OEM ve Özel Marka',
-      cap4Desc:     'Markanıza, etiketinize ve ambalaj düzeninize göre üretim yapılır.',
+      cap4Desc:     'Markanıza ve etiketinize göre üretim yapılır.',
       processLabel: 'Süreç',
       processH2a:   'Talepten',
-      processH2b:   'sevkiyata',
+      processH2b:   'teslimata',
       processDesc:  'Talebinizi iletin; üretim yaklaşımı, termin ve malzeme önerisiyle genellikle bir iş günü içinde dönüş yapalım.',
-      timelineLabel:'Termin',
-      timelineDesc: 'Numune: onaydan sonra 2–4 hafta. Seri üretim: numune onayından sonra 4–8 hafta.',
       step1Num:     '01',
       step1Title:   'Talep',
       step1Desc:    'Ölçü, adet, kullanım alanı ve varsa referansları form veya e-posta ile iletin. Net bir üretim yaklaşımıyla dönüş yapalım.',
@@ -720,10 +704,17 @@ window.ElseTranslations = {
       document.documentElement.lang = lang;
       localStorage.setItem(STORAGE_KEY, lang);
 
-      // Text nodes
+      // Text nodes. An empty string means "no line here" — hide the element
+      // and any <br> that precedes it, so it does not leave a blank gap.
       document.querySelectorAll('[data-i18n]').forEach(function(el) {
         var val = getVal(lang, el.dataset.i18n);
-        if (val !== null) el.textContent = val;
+        if (val === null) return;
+        el.textContent = val;
+        var blank = (val === '');
+        el.style.display = blank ? 'none' : '';
+        var prev = el.previousSibling;
+        while (prev && prev.nodeType === 3 && !prev.textContent.trim()) prev = prev.previousSibling;
+        if (prev && prev.nodeName === 'BR') prev.style.display = blank ? 'none' : '';
       });
 
       // Placeholders

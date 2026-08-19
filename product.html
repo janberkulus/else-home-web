@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Detail — Else Home</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -501,13 +502,11 @@
     const related = getRelated(p, 4);
     if (related.length > 0) {
       document.getElementById('relatedGrid').innerHTML = related.map(function(rp) {
-        const rpSubcat = (lang === 'tr' && rp.subcategory_tr) ? rp.subcategory_tr : rp.subcategory;
         return '<a href="product.html?id=' + rp.id + '" class="product-card reveal">' +
           '<div class="product-card-image">' +
             '<img src="' + rp.thumb + '" alt="' + rp.name + '" loading="lazy">' +
           '</div>' +
           '<div class="product-card-body">' +
-            '<div class="product-card-cat">' + rpSubcat + '</div>' +
             '<div class="product-card-name">' + rp.name + '</div>' +
             '<p class="product-card-desc">' + getL(rp, 'shortDesc') + '</p>' +
             '<span class="product-card-cta">' + getT('collections.viewDetails') +

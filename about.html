@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us — Else Home</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -11,13 +12,13 @@
   <style>
     /* About page styles */
     .about-hero {
-      padding: 96px 0 80px;
+      padding: 88px 0 72px;
       background: var(--navy);
     }
     .about-hero-inner {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 56px;
       align-items: center;
     }
     .about-hero-tag { color: rgba(255,255,255,0.4); margin-bottom: 16px; }
@@ -38,7 +39,13 @@
     .about-hero-image {
       position: relative;
     }
-    .about-hero-image img { width: 100%; display: block; }
+    .about-hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      object-fit: cover;
+      display: block;
+    }
     .about-hero-image::after {
       content: '';
       position: absolute;
@@ -208,24 +215,17 @@
     .about-cta-actions { display: flex; flex-direction: column; gap: 16px; }
     .about-cta-actions a { align-self: flex-start; }
 
-    .about-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--outline-light);
-    }
     @media (max-width: 900px) {
-      .about-hero-inner { grid-template-columns: 1fr; }
+      .about-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-hero-image img { min-height: 320px; }
       .timeline-inner { grid-template-columns: 1fr; }
       .values-grid { grid-template-columns: 1fr; }
       .cap-inner { grid-template-columns: 1fr; }
       .cert-grid { grid-template-columns: repeat(2, 1fr); }
       .about-cta-inner { grid-template-columns: 1fr; gap: 40px; }
-      .about-stats-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 480px) {
       .cert-grid { grid-template-columns: 1fr; }
-      .about-stats-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -471,7 +471,7 @@
         <span class="label-caps" data-i18n="about.prodSeqLabel">On the Floor</span>
       </div>
       <h2 class="h-lg"><span data-i18n="about.prodSeqH2a">How a unit</span><br><span data-i18n="about.prodSeqH2b">gets built</span></h2>
-      <p class="body-lg" style="margin-top:16px;max-width:560px;" data-i18n="about.prodSeqDesc">Every unit follows the same six stages and the same inspections, whether it is a single sample or a full container.</p>
+      <p class="body-lg" style="margin-top:16px;max-width:560px;" data-i18n="about.prodSeqDesc"></p>
     </div>
     <div class="values-grid">
       <div class="value-cell reveal">

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Products — Else Home</title>
   <meta name="description" content="34 models across bed bases, mattresses, toppers and headboards. Every one built to your dimensions and materials, in the Kayseri Free Zone, Turkey.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -306,7 +307,6 @@
     const grid = document.getElementById('productsGrid');
     grid.innerHTML = '';
     list.forEach(p => {
-      var subcat = (lang === 'tr' && p.subcategory_tr) ? p.subcategory_tr : p.subcategory;
       var shortDesc = (lang === 'tr' && p.shortDesc_tr) ? p.shortDesc_tr : p.shortDesc;
       grid.insertAdjacentHTML('beforeend', `
         <a href="product.html?id=${p.id}" class="product-card reveal">
@@ -314,7 +314,6 @@
             <img src="${p.thumb}" alt="${p.name}" loading="lazy">
           </div>
           <div class="product-card-body">
-            <div class="product-card-cat">${subcat}</div>
             <div class="product-card-name">${p.name}</div>
             <p class="product-card-desc">${shortDesc}</p>
             <span class="product-card-cta">
@@ -343,14 +342,15 @@
     var catNames = getCatNames();
     let list = currentCat === 'all' ? products : products.filter(p => p.category === currentCat);
 
-    const cat = catNames[currentCat] || getT('allProducts');
+    const cat = catNames[currentCat] || getT('pageTitle');
     document.getElementById('activeCatTitle').textContent = cat;
     document.getElementById('pageTitle').textContent = cat;
 
     const catData = categories.find(c => c.id === currentCat);
     var defaultDesc = getT('pageDesc') || '34 models across bed bases, mattresses, toppers and headboards. Every one can be built to your dimensions and materials.';
+    var curLang = getLang();
     document.getElementById('pageDesc').textContent = catData
-      ? ((lang === 'tr' && catData.description_tr) ? catData.description_tr : catData.description)
+      ? ((curLang === 'tr' && catData.description_tr) ? catData.description_tr : catData.description)
       : defaultDesc;
 
     renderCards(list);
