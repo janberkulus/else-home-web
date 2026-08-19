@@ -100,8 +100,6 @@
       line-height: 1.7;
       color: var(--text-muted);
       margin-bottom: 32px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--surface-high);
     }
     .product-actions {
       display: flex;
@@ -252,7 +250,7 @@
     <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="collections.html" class="active" data-i18n="nav.collections">Collections</a></li>
-        <li><a href="bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+        <li><a href="bespoke.html" data-i18n="nav.bespoke">Custom Production</a></li>
         <li><a href="about.html" data-i18n="nav.about">About</a></li>
         <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
       </ul>
@@ -263,7 +261,7 @@
         <span class="lang-sep">|</span>
         <button class="lang-btn" data-lang="tr">TR</button>
       </div>
-      <a href="contact.html" class="btn btn-primary btn-sm" data-i18n="nav.cta">Get in Touch</a>
+      <a href="contact.html" class="btn btn-primary btn-sm" data-i18n="nav.cta">Request a Quote</a>
     </div>
     <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span>
@@ -279,7 +277,7 @@
   </button>
   <ul class="mobile-nav-links">
     <li><a href="collections.html" data-i18n="nav.collections">Collections</a></li>
-    <li><a href="bespoke.html" data-i18n="nav.bespoke">Bespoke</a></li>
+    <li><a href="bespoke.html" data-i18n="nav.bespoke">Custom Production</a></li>
     <li><a href="about.html" data-i18n="nav.about">About</a></li>
     <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
   </ul>
@@ -289,7 +287,7 @@
     <button class="lang-btn" data-lang="tr">TR</button>
   </div>
   <div class="mobile-nav-cta">
-    <a href="contact.html" class="btn btn-on-dark btn-lg" data-i18n="mobileNav.cta">Get in Touch</a>
+    <a href="contact.html" class="btn btn-on-dark btn-lg" data-i18n="mobileNav.cta">Request a Quote</a>
   </div>
 </div>
 
@@ -317,9 +315,7 @@
         <span class="label-caps" data-i18n="productStatic.materialLabel">Material Options</span>
       </div>
       <h2 class="h-md" data-i18n="productStatic.fabricTitle">Fabric Selection</h2>
-      <p class="body-md" style="margin-top:12px;max-width:560px;" data-i18n="productStatic.fabricDesc">
-        Available in 40+ certified fabric options. All swatches shown are representative and exact colours may vary by dye lot. Sample service available on request.
-      </p>
+      <p class="body-md" style="margin-top:12px;max-width:560px;" data-i18n="productStatic.fabricDesc">Available in 40+ fabric options. Swatches shown are representative and exact colours vary by dye lot. Samples on request.</p>
     </div>
     <div id="fabricsList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:16px;"></div>
   </div>
@@ -332,13 +328,11 @@
     <div class="arch-inner">
       <div>
         <div class="section-label-row" style="margin-bottom:16px;">
-          <span class="label-caps" data-i18n="productStatic.archLabel">Internal Architecture</span>
+          <span class="label-caps" data-i18n="productStatic.archLabel">Inside the Product</span>
         </div>
-        <h2 class="h-md" style="margin-bottom:16px;" data-i18n="productStatic.archTitle">Layer Construction</h2>
-        <p class="body-md" style="margin-bottom:32px;max-width:460px;" data-i18n="productStatic.archDesc">
-          Each layer is selected for a specific performance role. Every material is chosen for what it contributes to comfort, support, and durability.
-        </p>
-        <a href="contact.html" class="btn btn-outline" data-i18n="productStatic.archCta">Customise This Product</a>
+        <h2 class="h-md" style="margin-bottom:16px;" data-i18n="productStatic.archTitle">Layer by layer</h2>
+        <p class="body-md" style="margin-bottom:32px;max-width:460px;" data-i18n="productStatic.archDesc">Each layer does a specific job. Every material is here for what it adds to comfort, support or durability.</p>
+        <a href="contact.html" class="btn btn-outline" data-i18n="productStatic.archCta">Request This Specification</a>
       </div>
       <div class="arch-diagram" id="archDiagram"></div>
     </div>
@@ -377,13 +371,13 @@
         <path d="M176.544 14.3624C176.544 14.8579 176.421 15.3184 176.171 15.7438C175.882 16.2262 175.509 16.4674 175.053 16.4674H159.384C159.559 17.8707 161.007 18.5724 163.726 18.5724H165.462C166.664 18.5724 167.26 19.331 167.26 20.844C167.26 22.1377 166.659 22.7824 165.462 22.7824C163.261 22.7824 161.77 22.7385 160.994 22.6464C159.152 22.4315 157.77 21.9403 156.849 21.1641C155.494 20.0064 154.819 18.6381 154.819 17.055V11.1084C154.819 9.07793 155.823 7.54741 157.827 6.52561C159.349 5.74939 161.151 5.36347 163.243 5.36347H169.357C171.054 5.36347 172.553 5.688 173.856 6.34142C175.645 7.24921 176.54 8.62622 176.54 10.4681V14.358L176.544 14.3624ZM172.198 12.1214V10.7575C172.198 10.319 171.786 10.0208 170.957 9.86291C170.637 9.8059 169.747 9.72697 168.286 9.6261H163.616C162.261 9.6261 161.419 9.64803 161.086 9.69188C159.866 9.84976 159.257 10.2488 159.257 10.8891V12.117H172.194L172.198 12.1214Z" fill="white"/>
       </svg>
         </div>
-        <p data-i18n="footer.tagline">Precision-manufactured bed bases, mattresses, and toppers for custom production worldwide.</p>
-        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;" data-i18n="footer.mfgNote">Custom manufacturing, engineered with precision</span>
+        <p data-i18n="footer.tagline">Bed bases, mattresses, toppers and headboards. Made in Kayseri Free Zone, Turkey.</p>
+        <span class="label-caps" style="color:rgba(255,255,255,0.22);display:block;margin-top:20px;" data-i18n="footer.mfgNote">Custom production, no minimum order</span>
       </div>
       <div class="footer-col">
         <div class="footer-col-head" data-i18n="footer.colCollections">Collections</div>
         <ul>
-          <li><a href="collections.html?cat=bed-base" data-i18n="footer.bedBase">Bed Base Systems</a></li>
+          <li><a href="collections.html?cat=bed-base" data-i18n="footer.bedBase">Bed Bases</a></li>
           <li><a href="collections.html?cat=mattress" data-i18n="footer.mattresses">Mattresses</a></li>
           <li><a href="collections.html?cat=topper" data-i18n="footer.toppers">Toppers</a></li>
         </ul>
@@ -392,20 +386,20 @@
         <div class="footer-col-head" data-i18n="footer.colCompany">Company</div>
         <ul>
           <li><a href="about.html" data-i18n="footer.aboutUs">About Us</a></li>
-          <li><a href="bespoke.html" data-i18n="footer.bespokeMfg">Bespoke Manufacturing</a></li>
+          <li><a href="bespoke.html" data-i18n="footer.bespokeMfg">Custom Production</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-head" data-i18n="footer.colContact">Contact</div>
         <ul>
           <li><a href="mailto:export@elsehome.com">export@elsehome.com</a></li>
-          <li><a href="contact.html" data-i18n="footer.requestProj">Request a Project</a></li>
+          <li><a href="contact.html" data-i18n="footer.requestProj">Start a Project</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span data-i18n="footer.copy">© 2024 Else Home. All rights reserved.</span>
-      <span data-i18n="footer.sub">Engineered in Turkey. Built for long-term use.</span>
+      <span data-i18n="footer.sub">Made in Turkey, shipped worldwide.</span>
     </div>
   </div>
 </footer>
@@ -453,7 +447,7 @@
     }).join('');
 
     const customChips = '<div class="option-chips">' +
-      p.customOptions.map(function(o) { return '<span class="option-chip">' + o + '</span>'; }).join('') +
+      getL(p, 'customOptions').map(function(o) { return '<span class="option-chip">' + o + '</span>'; }).join('') +
       '</div>';
     const subcategory = (lang === 'tr' && p.subcategory_tr) ? p.subcategory_tr : p.subcategory;
 
