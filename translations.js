@@ -697,7 +697,7 @@ window.ElseTranslations = {
 
   window.ElseLang = {
     current: function() {
-      return localStorage.getItem(STORAGE_KEY) || 'en';
+      return localStorage.getItem(STORAGE_KEY) || 'tr';
     },
     apply: function(lang) {
       if (!ElseTranslations[lang]) return;
