@@ -753,8 +753,8 @@ const categories = [
     name: 'Headboards',
     name_tr: 'Başlıklar',
     count: 19,
-    description: 'Upholstered headboards in 19 models. Wall-mounted or freestanding, in any fabric.',
-    description_tr: 'Döşemeli başlıklar, 19 modelde. Duvara monte ya da ayaklı, istediğiniz kumaşta.',
+    description: '19 upholstered headboard models. Available in different sizes, fabrics, and designs, and produced to coordinate with beds and bed bases.',
+    description_tr: '19 farklı döşemeli başlık modeli. Farklı ölçü, kumaş ve tasarım seçenekleriyle yatak ve bazalarla uyumlu olarak üretilir.',
     image: 'images/home/headboard-preview.jpg',
   },
 ];
